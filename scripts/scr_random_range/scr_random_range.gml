@@ -19,6 +19,7 @@ var result_number=array_int[irandom(max_-1)];
 if(result_number>1){
 	result_number=1
 }
+
 return result_number
 
 
