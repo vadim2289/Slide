@@ -11,6 +11,6 @@ y=y_start
 //meteor_start=false;
 alarm[0]=100
 //direction=point_direction(x,y,100,500)
-count_stop=irandom(4);
+count_stop=4
 
 type_obj="obj_ufo"

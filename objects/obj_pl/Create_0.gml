@@ -12,7 +12,7 @@ result_radius=global.radius_+100;
 jump_=11;
 speed_=global.speed_
 
-AI="stand"
+AI="on_eath"
 dopusk=16 // насколько глубоко можно проваливаться в препятствие, поблажка в пискелях
 
 

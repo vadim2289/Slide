@@ -1,8 +1,7 @@
 // рандомный выбор типа сектора из возможных взятых из таблицы
 var string_=argument0
-
 //var max_=string_length(string_letters(string_))+1;
-var max_=1
+var max_=3
 var i=max_;
 
 repeat(i) { 
@@ -16,11 +15,12 @@ repeat(i) {
 	i-=1;	
 }
 var result_number=array_int[irandom(max_-1)];
-if(result_number>1){
-	result_number=1
+if(int64(result_number)>max_){
+	result_number="1"
 }
 
 return result_number
+
 
 
 

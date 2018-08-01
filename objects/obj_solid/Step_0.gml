@@ -8,7 +8,4 @@ x=global.x_+lengthdir_x(global.radius_+height_radius,alpha);
 y=global.y_+lengthdir_y(global.radius_+height_radius,alpha);
 
 
-
-if(start_alpha>=600){
-	instance_destroy();
-}
+scr_360()

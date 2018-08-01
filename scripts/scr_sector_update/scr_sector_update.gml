@@ -7,11 +7,16 @@ var sprite_id_loc=""
 if(global.string_end!="-1"){ // если не первый проход
 			
 	var result_row=irandom_range(int64(global.string_end)*10,int64(global.string_end)*10+9) // рандомный выбор из выбранного десятка секторов базы
-	//var result_row=irandom_range(0,9)
+	global.number_++
+	result_row=global.number_
+	if result_row>29{
+		result_row=0
+		global.number_=0
+	}
 	global.string_end= scr_random_range(global.DB[# result_row,2])	// выбираем вид сектора из допустимых для следующего прохода
 	//global.string_end=string(irandom_range(0,1))
 	//global.string_end= "0" // временно
-
+	global.testing=" string_end "+string(global.string_end)+" result_row "+string(result_row)
 	sprite_index=asset_get_index(global.DB[# result_row,0]);  // загружаем спрайт сектора
 	for(var pool=3;pool<43;pool+=4){		
 		if(global.DB[# result_row,pool]!=0){				
@@ -38,7 +43,7 @@ if(global.string_end!="-1"){ // если не первый проход
 	var result_row=0 // 0 для первого прохода
 	//var result_row=irandom_range(5,9)
 	global.string_end= scr_random_range(global.DB[# result_row,2])	 // выбираем вид сектора из допустимых для следующего прохода
-
+	global.testing=" string_end "+string(global.string_end)+" result_row "+string(result_row)
 	sprite_index=asset_get_index(global.DB[# result_row,0]);
 	for(var pool=3;pool<43;pool+=4){		
 		if(global.DB[# result_row,pool]!=0){				
@@ -61,4 +66,7 @@ if(global.string_end!="-1"){ // если не первый проход
 	global.string_end="0"  // временно
 }
 
+with (obj_enemy){	
+	depth=depth-10
+}
 

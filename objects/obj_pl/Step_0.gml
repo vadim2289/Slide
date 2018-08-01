@@ -16,7 +16,7 @@ if(key_horizon>0){
 	image_speed=2	
 }else if(key_horizon<0){
 	horizontal_speed+=acceleration_
-	horizontal_speed=clamp(abs(horizontal_speed),0,speed_);
+	horizontal_speed=clamp(abs(horizontal_speed),0,speed_*1.5);
 	image_speed=0
 }else{
 	horizontal_speed=lerp(horizontal_speed,0,acceleration_*1.5)
@@ -29,9 +29,13 @@ var y_future=global.y_+lengthdir_y(result_radius+vertical_speed,alpha);
 var x_future_1=global.x_+lengthdir_x(result_radius+sign(vertical_speed),alpha);
 var y_future_1=global.y_+lengthdir_y(result_radius+sign(vertical_speed),alpha);
 var result_radius_local=result_radius
-if(place_meeting(x_future,y_future,obj_eath)){
+if(place_meeting(x_future,y_future,obj_enemy)){
+	//game_restart()
+}
 
-	show_debug_message(vertical_speed)
+if(place_meeting(x_future,y_future,obj_eath)){
+	AI="on_eath"
+	//show_debug_message(vertical_speed)
 	//Проверка коллизий при падении к центру круга и установка радиуса для координат на 1 пиксель выше коллизии		
 	while !place_meeting(x_future_1,y_future_1,obj_eath){	
 		result_radius=result_radius_local
@@ -45,7 +49,7 @@ if(place_meeting(x_future,y_future,obj_eath)){
 	while place_meeting(global.x_+lengthdir_x(result_radius_local,alpha),global.y_+lengthdir_y(result_radius_local,alpha),obj_eath){		
 		result_radius_local+=1					
 		if(abs(result_radius-result_radius_local)>dopusk){// если игрок проваливается в солид больше чем на 20 пикселей, то конец, если меньше, то нор, встает наверх
-	//		game_restart()
+			//game_restart()
 			//global.Testing="PROIGRAL LOPUH "
 		
 			//global.speed_=0
@@ -71,6 +75,8 @@ if(place_meeting(x_future,y_future,obj_eath)){
 		result_radius=1125
 	}
 	
+}else{
+	AI="jamp"	
 }
 if(button_down>0){
 	sprite_index=spr_pld
@@ -80,10 +86,10 @@ if(button_down>0){
 	image_angle=alpha-90
 }
 
-if(button_key>0){		// поправить условие с нулем, так как можно прыгать в самой высшей точке повторно
-		vertical_speed=button_key*jump_
-	}
-show_debug_message("step "+ string(vertical_speed))
+if(button_key>0&&AI="on_eath"){		
+	vertical_speed=button_key*jump_
+}
+//show_debug_message("step "+ string(vertical_speed))
 result_radius+=vertical_speed;
 
 x=global.x_+lengthdir_x(result_radius,alpha); 
