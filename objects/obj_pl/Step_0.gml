@@ -49,32 +49,36 @@ if(place_meeting(x_future,y_future,obj_eath)){
 	while place_meeting(global.x_+lengthdir_x(result_radius_local,alpha),global.y_+lengthdir_y(result_radius_local,alpha),obj_eath){		
 		result_radius_local+=1					
 		if(abs(result_radius-result_radius_local)>dopusk){// если игрок проваливается в солид больше чем на 20 пикселей, то конец, если меньше, то нор, встает наверх
-			//game_restart()
-			//global.Testing="PROIGRAL LOPUH "
-		
+			game_restart()
+			show_debug_message(result_radius_local)
+			//global.Testing="PROIGRAL LOPUH "		
 			//global.speed_=0
 			global.play_=false;	
-	//		speed_=global.speed_
-			
-				
-		}else{	
-			//global.Testing="norm "+string(result_radius-result_radius_local)
-			//result_radius=result_radius_local
+	//		speed_=global.speed_				
 		}
 	}	
-
-	if(result_radius_local<820){
-		result_radius=725
-	}else if(result_radius_local>820&&result_radius_local<920){
-		result_radius=825		
-	}else if(result_radius_local>920&&result_radius_local<1020){
-		result_radius=925
-	}else if(result_radius_local>1020&&result_radius_local<1120){
-		result_radius=1025
-	}else if(result_radius_local>1120&&result_radius_local<1320){
-		result_radius=1125
-	}
 	
+	global.testing=result_radius_local
+	show_debug_message(result_radius_local)
+	result_radius=result_radius_local
+	var inst= instance_place(x_future,y_future,obj_eath)
+		if(object_get_name(inst.object_index)=="obj_solid_fall"&&inst.alarm[0]<=0){
+			inst.fall_=true
+		}
+	if(object_get_name(inst.object_index)!="obj_solid_fall"){
+		if(result_radius_local<730){
+			result_radius=725
+		}else if(result_radius_local>820&&result_radius_local<830){
+			result_radius=825		
+		}else if(result_radius_local>920&&result_radius_local<930){
+			result_radius=925
+		}else if(result_radius_local>1020&&result_radius_local<1030){
+			result_radius=1025
+		}else if(result_radius_local>1120&&result_radius_local<1130){
+			result_radius=1125
+		}
+	}
+
 }else{
 	AI="jamp"	
 }

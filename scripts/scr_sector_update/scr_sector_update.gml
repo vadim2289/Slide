@@ -13,6 +13,7 @@ if(global.string_end!="-1"){ // если не первый проход
 		result_row=0
 		global.number_=0
 	}
+	result_row=6
 	global.string_end= scr_random_range(global.DB[# result_row,2])	// выбираем вид сектора из допустимых для следующего прохода
 	//global.string_end=string(irandom_range(0,1))
 	//global.string_end= "0" // временно
