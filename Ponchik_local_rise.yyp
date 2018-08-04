@@ -143,6 +143,14 @@
             }
         },
         {
+            "Key": "2c45de59-519a-493d-8105-def6bf644594",
+            "Value": {
+                "id": "b3cd044a-5939-4251-ab12-2af65ed4eaaa",
+                "resourcePath": "datafiles_yy\\levelDB.txt.yy",
+                "resourceType": "GMIncludedFile"
+            }
+        },
+        {
             "Key": "2e225345-f5b6-42c6-8024-cd40ab251afd",
             "Value": {
                 "id": "6ae9eb50-2f73-429c-b48a-5a2b6e39202e",
@@ -180,14 +188,6 @@
                 "id": "b322e484-0490-481f-934e-c40a7834e5fa",
                 "resourcePath": "views\\374d2319-d053-42b9-a701-3752c7b80724.yy",
                 "resourceType": "GMFolder"
-            }
-        },
-        {
-            "Key": "38c51f2d-7427-45b5-88d9-f5717e66c7e6",
-            "Value": {
-                "id": "6b3d7cd7-cca2-4d08-a563-63cafea4cfe1",
-                "resourcePath": "datafiles_yy\\levelDB.txt.yy",
-                "resourceType": "GMIncludedFile"
             }
         },
         {
@@ -385,7 +385,7 @@
         {
             "Key": "7726185c-f87b-480b-b301-c3b932a4156b",
             "Value": {
-                "id": "24879953-36e0-4dea-a504-679e41700f0f",
+                "id": "12c307e9-752f-4d89-985c-3412a3dfe31f",
                 "resourcePath": "sprites\\spr_solid_fall\\spr_solid_fall.yy",
                 "resourceType": "GMSprite"
             }
@@ -585,7 +585,7 @@
         {
             "Key": "bc0d352b-8826-43f3-9902-e25c8cd2c7c9",
             "Value": {
-                "id": "1ec7b0be-7bea-43d8-adfd-8c2617a5d064",
+                "id": "89d4a6f1-c01a-4cfe-8d47-f2e2f6464b12",
                 "resourcePath": "sprites\\spr_solid_fall_true\\spr_solid_fall_true.yy",
                 "resourceType": "GMSprite"
             }

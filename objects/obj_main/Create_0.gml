@@ -29,6 +29,14 @@ new_ufo=instance_create_layer(-10,-20,"Instances",obj_ufo)
 sector_r=instance_create_layer(global.x_,global.y_,"Instances",obj_eath); // правая точка
 sector_r.rotation_start=90;
 sector_r.sprite_index=0;
+sector_r.sprite_index=2;
+sector_r.sprite_index=3;
+sector_r.sprite_index=4;
+sector_r.sprite_index=5;
+sector_r.sprite_index=6;
+sector_r.sprite_index=7;
+
+
 
 sector_u=instance_create_layer(global.x_,global.y_,"Instances",obj_eath); // верхнаяя точка
 sector_u.rotation_start=180;

@@ -8,7 +8,7 @@ if (abs(x-x_end)<=3&&speed>0){
 	}else{
 		speed=0	
 		x=-20
-		alarm[0]=irandom_range(300,500)
+		alarm[0]=irandom_range(3000,10000)
 		count_stop=irandom_range(2,5);
 	}
 	//show_debug_message("step!! "+string(count_stop)+" alarm 0 " +string(alarm[0])+" alarm 1 " +string(alarm[1]))

@@ -30,7 +30,7 @@ var x_future_1=global.x_+lengthdir_x(result_radius+sign(vertical_speed),alpha);
 var y_future_1=global.y_+lengthdir_y(result_radius+sign(vertical_speed),alpha);
 var result_radius_local=result_radius
 if(place_meeting(x_future,y_future,obj_enemy)){
-	//game_restart()
+	game_restart()
 }
 
 if(place_meeting(x_future,y_future,obj_eath)){
@@ -50,7 +50,7 @@ if(place_meeting(x_future,y_future,obj_eath)){
 		result_radius_local+=1					
 		if(abs(result_radius-result_radius_local)>dopusk){// если игрок проваливается в солид больше чем на 20 пикселей, то конец, если меньше, то нор, встает наверх
 			game_restart()
-			show_debug_message(result_radius_local)
+			//show_debug_message(result_radius_local)
 			//global.Testing="PROIGRAL LOPUH "		
 			//global.speed_=0
 			global.play_=false;	
@@ -58,8 +58,8 @@ if(place_meeting(x_future,y_future,obj_eath)){
 		}
 	}	
 	
-	global.testing=result_radius_local
-	show_debug_message(result_radius_local)
+	//global.testing=result_radius_local
+	//show_debug_message(result_radius_local)
 	result_radius=result_radius_local
 	var inst= instance_place(x_future,y_future,obj_eath)
 		if(object_get_name(inst.object_index)=="obj_solid_fall"&&inst.alarm[0]<=0){
