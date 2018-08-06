@@ -7,19 +7,19 @@ score+=5
 if(global.string_end!="-1"){ // если не первый проход
 			
 	var result_row=irandom_range(int64(global.string_end)*10,int64(global.string_end)*10+9) // рандомный выбор из выбранного десятка секторов базы
-	/*global.number_+=1
+	global.number_+=1
 	result_row=global.number_
 	if result_row>49{
 		result_row=0
 		global.number_=0
-	}*/
+	}
 	//result_row=6
 	
 	global.string_end= scr_random_range(global.DB[# result_row,2])	// выбираем вид сектора из допустимых для следующего прохода
 	//global.string_end=string(irandom_range(0,1))
 	//global.string_end= "0" // временно
 	global.testing=" string_end "+string(global.string_end)+" result_row "+string(result_row)
-	sprite_index=asset_get_index(global.DB[# result_row,0]);  // загружаем спрайт сектора
+	//sprite_index=asset_get_index(global.DB[# result_row,0]);  // загружаем спрайт сектора
 	/*if(global.number_/2-round(global.number_/2)==0){
 		sprite_index=spr_circle_R // загружаем спрайт сектора
 	}else{

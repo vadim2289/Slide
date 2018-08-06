@@ -2,7 +2,7 @@
 // You can write your code in this editor
 global.radius_=825;
 global.x_=room_width/2;
-global.y_=room_height+415;
+global.y_=room_height-3*415;
 global.speed_=0.3;
 global.sector_numb=0;
 global.max_=3;
