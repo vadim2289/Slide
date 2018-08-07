@@ -18,4 +18,6 @@ if(alarm_true&&image_index > image_number-1){
 		alarm[0]=time_pause	
 		//show_debug_message(alarm_true)
 }	
-scr_360()
+if(alpha>=600){
+	instance_destroy();
+}

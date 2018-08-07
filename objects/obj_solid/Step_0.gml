@@ -7,5 +7,6 @@ start_alpha=image_angle+90
 x=global.x_+lengthdir_x(global.radius_+height_radius,alpha); 
 y=global.y_+lengthdir_y(global.radius_+height_radius,alpha);
 
-
-scr_360()
+if(alpha>=600){
+	instance_destroy();
+}

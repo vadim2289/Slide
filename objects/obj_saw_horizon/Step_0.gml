@@ -15,6 +15,6 @@
 
 
 
-scr_360()
-
-
+if(alpha>=600){
+	instance_destroy();
+}

@@ -11,7 +11,8 @@
         "41753b4f-7048-472d-be18-624da9442c03",
         "dc81e2ab-8f8a-4f3c-8626-a74cdbea0013",
         "2e225345-f5b6-42c6-8024-cd40ab251afd",
-        "51b02f44-6ee8-4818-b029-847e5e02ada2"
+        "51b02f44-6ee8-4818-b029-847e5e02ada2",
+        "6fc9f7ad-902d-41ee-b115-88e62f0ffcd0"
     ],
     "filterType": "GMSprite",
     "folderName": "Sectors",
