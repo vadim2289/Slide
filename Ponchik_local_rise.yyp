@@ -143,14 +143,6 @@
             }
         },
         {
-            "Key": "2c45de59-519a-493d-8105-def6bf644594",
-            "Value": {
-                "id": "b3cd044a-5939-4251-ab12-2af65ed4eaaa",
-                "resourcePath": "datafiles_yy\\levelDB.txt.yy",
-                "resourceType": "GMIncludedFile"
-            }
-        },
-        {
             "Key": "2e225345-f5b6-42c6-8024-cd40ab251afd",
             "Value": {
                 "id": "6ae9eb50-2f73-429c-b48a-5a2b6e39202e",
@@ -564,6 +556,14 @@
                 "id": "ca9716eb-103f-4a1e-84ed-35b2b7a7ceee",
                 "resourcePath": "options\\linux\\options_linux.yy",
                 "resourceType": "GMLinuxOptions"
+            }
+        },
+        {
+            "Key": "ba85adcb-c509-4334-a1a7-76affee29304",
+            "Value": {
+                "id": "4748cf5d-23e6-43aa-b9b1-54fcecb25fe2",
+                "resourcePath": "datafiles_yy\\levelDB.txt.yy",
+                "resourceType": "GMIncludedFile"
             }
         },
         {

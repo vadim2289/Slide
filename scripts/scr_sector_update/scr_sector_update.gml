@@ -7,12 +7,12 @@ score+=5
 if(global.string_end!="-1"){ // если не первый проход
 			
 	var result_row=irandom_range(int64(global.string_end)*10,int64(global.string_end)*10+9) // рандомный выбор из выбранного десятка секторов базы
-	global.number_+=1
-	result_row=global.number_
-	if result_row>49{
-		result_row=0
-		global.number_=0
-	}
+	//global.number_+=1
+	//result_row=global.number_
+	//if result_row>49{
+	//	result_row=0
+//		global.number_=0
+//	}
 	//result_row=6
 	
 	global.string_end= scr_random_range(global.DB[# result_row,2])	// выбираем вид сектора из допустимых для следующего прохода
@@ -56,7 +56,7 @@ if(global.string_end!="-1"){ // если не первый проход
 			
 }else{ // если первый проход в самом начале игры
 	//global.string_end="0";
-	var result_row=27 // 0 для первого прохода
+	var result_row=0 // 0 для первого прохода
 	//var result_row=irandom_range(5,9)
 	global.string_end= scr_random_range(global.DB[# result_row,2])	 // выбираем вид сектора из допустимых для следующего прохода
 	global.testing=" string_end "+string(global.string_end)+" result_row "+string(result_row)
