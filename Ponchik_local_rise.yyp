@@ -255,6 +255,14 @@
             }
         },
         {
+            "Key": "50c32063-d634-4284-a6b9-6a779cdd8bda",
+            "Value": {
+                "id": "c7540458-2999-4143-9d79-054dd8809341",
+                "resourcePath": "fonts\\font_testing\\font_testing.yy",
+                "resourceType": "GMFont"
+            }
+        },
+        {
             "Key": "51b02f44-6ee8-4818-b029-847e5e02ada2",
             "Value": {
                 "id": "0fd24b46-1945-4d8e-8ce3-0975c5c35994",

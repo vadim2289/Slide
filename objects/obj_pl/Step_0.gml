@@ -30,42 +30,37 @@ var x_future_1=global.x_+lengthdir_x(result_radius+sign(vertical_speed),alpha);
 var y_future_1=global.y_+lengthdir_y(result_radius+sign(vertical_speed),alpha);
 var result_radius_local=result_radius
 if(place_meeting(x_future,y_future,obj_enemy)){
-	//game_restart()
+	global.testing="BAH-BABAH"
+	alarm[0]=10
 }
 
 if(place_meeting(x_future,y_future,obj_eath)){
 	AI="on_eath"
-	//show_debug_message(vertical_speed)
-	//Проверка коллизий при падении к центру круга и установка радиуса для координат на 1 пиксель выше коллизии		
-		while !place_meeting(x_future_1,y_future_1,obj_eath){	
-			result_radius=result_radius_local
-			result_radius_local+=sign(vertical_speed);	
-			x_future_1=global.x_+lengthdir_x(result_radius_local,alpha); 
-			y_future_1=global.y_+lengthdir_y(result_radius_local,alpha);			
-		}	
-	vertical_speed=0;	
-	result_radius_local=result_radius;
-	//Проверка коллизий при движении вправо влево и при погружении в объект более чем на 10 пикселей рестарт	
-	while place_meeting(global.x_+lengthdir_x(result_radius_local,alpha),global.y_+lengthdir_y(result_radius_local,alpha),obj_eath){		
-		result_radius_local+=1					
+	//Доводим персонаж плавно с шагом +1 или -1 до момента соприкосновения с объектом.	
+	while !place_meeting(x_future_1,y_future_1,obj_eath){	
+		result_radius=result_radius_local
+		result_radius_local+=sign(vertical_speed);	
+		x_future_1=global.x_+lengthdir_x(result_radius_local,alpha); 
+		y_future_1=global.y_+lengthdir_y(result_radius_local,alpha);			
+	}	
+	//Проверка коллизий при погружении в объект более чем на 16 пикселей - рестарт	
+	while place_meeting(global.x_+lengthdir_x(result_radius_local+sign(vertical_speed),alpha),global.y_+lengthdir_y(result_radius_local+sign(vertical_speed),alpha),obj_eath){		
+		result_radius_local+=1	
+		//show_debug_message("while place_meeting_"+string(result_radius_local)+" dopusk "+string(abs(result_radius-result_radius_local)))
 		if(abs(result_radius-result_radius_local)>dopusk){// если игрок проваливается в солид больше чем на 20 пикселей, то конец, если меньше, то нор, встает наверх
 			//game_restart()
-			//show_debug_message(result_radius_local)
-			//global.Testing="PROIGRAL LOPUH "		
-			//global.speed_=0
-			global.play_=false;	
-	//		speed_=global.speed_				
+			global.testing="BAH-BABAH"
+			alarm[0]=10
+			break; // остновка while после рестарта, чтобы не считал до конца			
 		}
 	}	
-	
-	//global.testing=result_radius_local
-	//show_debug_message(result_radius_local)
+	vertical_speed=0;// обнуление вертикальной скорости здесь, чтобы работала проверка на  погружение в спрайт выше	
 	result_radius=result_radius_local
 	var inst= instance_place(x_future,y_future,obj_eath)
-		/*if(object_get_name(inst.object_index)=="obj_solid_fall"&&inst.alarm[0]<=0){
-			inst.fall_=true
-			//result_radius=global.radius_+inst.height_radius 
-		}*/
+	if(object_get_name(inst.object_index)=="obj_solid_fall"&&inst.alarm[0]<=0){
+		inst.fall_=true
+	}
+	// Для предотвращения дергания задаем строгую позицию по возможным радиусам
 	if(object_get_name(inst.object_index)!="obj_solid_fall"){
 		if(result_radius_local<730){
 			result_radius=725
@@ -79,6 +74,9 @@ if(place_meeting(x_future,y_future,obj_eath)){
 		}else if(result_radius_local>1120&&result_radius_local<1130){
 			result_radius=1125
 		}
+	}else{
+		result_radius=inst.height_radius+global.radius_-1
+		//show_debug_message("solid_fall"+string(result_radius))
 	}
 
 }else{
@@ -91,7 +89,6 @@ if(button_down>0){
 	sprite_index=spr_pl
 	image_angle=alpha-90
 }
-//show_debug_message(AI)
 if(button_key){
 	show_debug_message(AI)
 	show_debug_message(vertical_speed)
@@ -100,7 +97,6 @@ if(button_key>0&&AI="on_eath"){
 	vertical_speed=button_key*jump_
 }
 
-//show_debug_message("step "+ string(vertical_speed))
 result_radius+=vertical_speed;
 
 x=global.x_+lengthdir_x(result_radius,alpha); 
