@@ -6,7 +6,7 @@ rotation_start+=global.speed_;
 if(rotation_start>=360||rotation_start<=-360){
 	rotation_start-=360*sign(global.speed_);	
 	sector_updating=false;
-	show_debug_message("AAAAAAAAAAAAAAAAAAA")
+	//show_debug_message("AAAAAAAAAAAAAAAAAAA")
 }
 if(rotation_start>350&&rotation_start<359&&!sector_updating)
 {

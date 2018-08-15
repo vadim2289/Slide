@@ -10,6 +10,7 @@ global.DB=ds_grid_create(100,43)
 global.string_end="-1";
 global.play_=true
 global.testing=""
+global.log=""
 global.number_=0
 //var DB=ds_grid_create(10,10)
 instance_create_layer(global.x_,global.y_-global.radius_-150,"Instances",obj_pl);
