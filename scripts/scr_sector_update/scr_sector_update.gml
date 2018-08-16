@@ -112,4 +112,4 @@ if(global.string_end!="-1"){ // если не первый проход
 with (obj_enemy){	
 	depth=depth-10
 }
-
+return result_row

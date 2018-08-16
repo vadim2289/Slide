@@ -11,7 +11,7 @@ if(rotation_start>=360||rotation_start<=-360){
 if(rotation_start>350&&rotation_start<359&&!sector_updating)
 {
 	sector_updating=true;
-	scr_sector_update();
+	sector_id=scr_sector_update();
 
 	
 }

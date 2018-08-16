@@ -13,9 +13,9 @@ global.testing=""
 global.log=""
 global.number_=0
 
-global.string_write=""
+//global.string_write=""
 
-/*
+
 //var DB=ds_grid_create(10,10)
 instance_create_layer(global.x_,global.y_-global.radius_-150,"Instances",obj_pl);
 //instance_create_layer(global.x_,global.y_-global.radius_,"Instances",obj_pie);
@@ -43,7 +43,7 @@ sector_r.sprite_index=6;
 sector_r.sprite_index=7;
 */
 
-/*
+
 
 sector_u=instance_create_layer(global.x_,global.y_,"Instances",obj_eath); // верхнаяя точка
 sector_u.rotation_start=180;
@@ -56,7 +56,7 @@ sector_l.sprite_index=0;
 sector_d=instance_create_layer(global.x_,global.y_,"Instances",obj_eath); // нижняя точка
 sector_d.rotation_start=0;
 sector_d.sprite_index=1;
-*/
+
 if (file_exists(working_directory +"levelDB.txt")){
 	var file=file_text_open_read(working_directory +"levelDB.txt");
 	var string_end=file_text_read_string(file);
@@ -64,8 +64,8 @@ if (file_exists(working_directory +"levelDB.txt")){
 	file_text_close(file);
 }
 randomize()
-scr_db_create();
-/*
+//scr_db_create();
+
 // подгрузка карт спрайтов нужно пересматривать каждый раз когда добавляешь новый спрайт
 draw_texture_flush();
 
@@ -80,4 +80,3 @@ draw_sprite(spr_solid2, 0, 0, 0);
 draw_sprite(spr_pie, 0, 0, 0);
 
 //new_solid=instance_create_layer(0,0,"Instances", obj_solid);
-*/
