@@ -1,32 +1,35 @@
-/*var i=9
-repeat(10){	
-	array_elements[i]=1;
-	i--;
-}
-*/
-/*
-var i=0;
-var j=0;
-var grid_level=ds_grid_create(100,10)
-//ds_grid_resize(grid_level,20,20)
-
-var grid_level2=ds_grid_create(100,10)
-//ds_grid_resize(grid_level2,20,20)
-for(i=0;i<99;i++){
-	//var xx=irandom(10);	
-	grid_level[# i,0]=i;
-	grid_level[# i,1]=obj_solid.object_index;
-	grid_level[# i,2]=i;
-	grid_level[# i,3]=string(irandom(99))+","+string(irandom(99))+","+string(irandom(99));
+var i=0
+var string_write=""
+//show_debug_message(object_get_name(id))
+repeat 4000 {
 	
-	
+	if(global.string_end!="-1"){ // если не первый проход
+			
+		var result_row=irandom_range(int64(global.string_end)*10,int64(global.string_end)*10+9) // рандомный выбор из выбранного десятка секторов базы
+		//global.string_write+=string(result_row)+" X "
+		global.string_end= scr_random_range(global.DB[# result_row,2])	// выбираем вид сектора из допустимых для следующего прохода
+		string_write+=string(result_row)+" X "
+		//show_debug_message(i)
+		i++
+			
+	}else{ // если первый проход в самом начале игры
+		//show_debug_message("!!!!!!!!!!!")
+		var result_row=0 // 0 для первого прохода
+		//var result_row=irandom_range(5,9)
+		global.string_end= scr_random_range(global.DB[# result_row,2])	 // выбираем вид сектора из допустимых для следующего прохода
+		string_write+=string(result_row)+" X "
+		//global.string_write+=string(result_row)+" X "
+/*if(int64(result_number)>max_-1){
+	result_number="1"
+}*/
+		
+		
+
+	}
 }
-var str
-str=ds_grid_write(grid_level);
-txt_=file_text_open_write("level_1.txt");
-file_text_write_string(txt_,str);
-file_text_close(txt_);
-
-*/
-
-
+if (file_exists(working_directory +"log.txt")){
+	var file=file_text_open_write(working_directory+"log.txt") 
+	//file_text_write_string(file,global.string_write)
+	file_text_write_string(file,string_write)
+	file_text_close(file)
+}
