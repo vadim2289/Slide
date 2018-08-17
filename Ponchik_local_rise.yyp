@@ -103,14 +103,6 @@
             }
         },
         {
-            "Key": "13f009d4-3edd-4a4b-928b-e0caacada571",
-            "Value": {
-                "id": "642eddf0-1299-4fa2-986e-3a1358a70f92",
-                "resourcePath": "sprites\\background7\\background7.yy",
-                "resourceType": "GMSprite"
-            }
-        },
-        {
             "Key": "14536712-4e4a-44be-8c9b-af3ada7370e4",
             "Value": {
                 "id": "6f4179e1-bb5d-46b7-8730-f0f0d014e19b",
@@ -151,26 +143,10 @@
             }
         },
         {
-            "Key": "2a220d7d-befe-4e93-b2c2-ba7de65fad99",
-            "Value": {
-                "id": "c3fa680b-0c70-4221-ab21-d62499cc14da",
-                "resourcePath": "sprites\\background3\\background3.yy",
-                "resourceType": "GMSprite"
-            }
-        },
-        {
             "Key": "2e225345-f5b6-42c6-8024-cd40ab251afd",
             "Value": {
                 "id": "6ae9eb50-2f73-429c-b48a-5a2b6e39202e",
                 "resourcePath": "sprites\\spr_circle_RR\\spr_circle_RR.yy",
-                "resourceType": "GMSprite"
-            }
-        },
-        {
-            "Key": "2e424a0c-57e7-4fbd-b5cb-c3523a43d0e2",
-            "Value": {
-                "id": "716f29f2-d1cd-4d22-93f0-7cd8eb31d392",
-                "resourcePath": "sprites\\background2\\background2.yy",
                 "resourceType": "GMSprite"
             }
         },
@@ -204,14 +180,6 @@
                 "id": "b322e484-0490-481f-934e-c40a7834e5fa",
                 "resourcePath": "views\\374d2319-d053-42b9-a701-3752c7b80724.yy",
                 "resourceType": "GMFolder"
-            }
-        },
-        {
-            "Key": "3b66abc3-1249-4b6d-a044-fddf3eac424a",
-            "Value": {
-                "id": "67539c44-f047-44cc-9d6f-11129f16f392",
-                "resourcePath": "sprites\\cloud_blue\\cloud_blue.yy",
-                "resourceType": "GMSprite"
             }
         },
         {
@@ -287,14 +255,6 @@
             }
         },
         {
-            "Key": "49db4629-b6d5-49db-8b11-dd8aa720d666",
-            "Value": {
-                "id": "b93c9bbb-12bd-4e41-9a1c-85637ef40b64",
-                "resourcePath": "sprites\\background16\\background16.yy",
-                "resourceType": "GMSprite"
-            }
-        },
-        {
             "Key": "4c3b6b0a-1611-4848-8525-bb367f3a3bbe",
             "Value": {
                 "id": "8ad2d3ce-c876-4683-8eb2-18243e1defbf",
@@ -335,6 +295,14 @@
             }
         },
         {
+            "Key": "56274105-2b44-4412-af7b-8bc67018b9d1",
+            "Value": {
+                "id": "f2a9fd4a-cca6-4a05-8782-deb6aafc9548",
+                "resourcePath": "datafiles_yy\\levelDB.txt.yy",
+                "resourceType": "GMIncludedFile"
+            }
+        },
+        {
             "Key": "566b15c7-84e0-4ec2-ac3e-92f42c8e7cf4",
             "Value": {
                 "id": "c38db355-5afc-4b5e-aa9d-45fa69387704",
@@ -347,14 +315,6 @@
             "Value": {
                 "id": "4c621b7c-d9dc-4990-912f-f3362afae52a",
                 "resourcePath": "sprites\\spr_pie_up_shoot\\spr_pie_up_shoot.yy",
-                "resourceType": "GMSprite"
-            }
-        },
-        {
-            "Key": "59359e3f-ade0-42c2-ae06-2104ee3c4db8",
-            "Value": {
-                "id": "470f2e3a-498d-40fb-b1d8-ad9782f7ff14",
-                "resourcePath": "sprites\\cloud_orange\\cloud_orange.yy",
                 "resourceType": "GMSprite"
             }
         },
@@ -380,14 +340,6 @@
                 "id": "30c2bd84-7549-4336-94bc-c8a98b706b80",
                 "resourcePath": "views\\5ccb2008-e6ba-48b0-aca0-d05d3c626434.yy",
                 "resourceType": "GMFolder"
-            }
-        },
-        {
-            "Key": "5f7c1ce1-dd83-4bf4-9682-bb70d1d2ac5e",
-            "Value": {
-                "id": "aa25e86e-11b9-4e67-8a62-f88bd9e93d61",
-                "resourcePath": "sprites\\background1\\background1.yy",
-                "resourceType": "GMSprite"
             }
         },
         {
@@ -419,14 +371,6 @@
             "Value": {
                 "id": "f0eb960b-0760-4b61-8622-d693b40f3a3f",
                 "resourcePath": "sprites\\spr_circle_small\\spr_circle_small.yy",
-                "resourceType": "GMSprite"
-            }
-        },
-        {
-            "Key": "70997475-5c37-4242-aadc-d3120f3c5da2",
-            "Value": {
-                "id": "caec9ef8-2801-446f-b618-78575af86d21",
-                "resourcePath": "sprites\\background6\\background6.yy",
                 "resourceType": "GMSprite"
             }
         },
@@ -463,14 +407,6 @@
             }
         },
         {
-            "Key": "75fbd01b-d8c0-4f05-bdcb-c06d38d832e0",
-            "Value": {
-                "id": "8bf41c44-9fde-4f6b-bba0-02ebebd00abd",
-                "resourcePath": "sprites\\background12\\background12.yy",
-                "resourceType": "GMSprite"
-            }
-        },
-        {
             "Key": "7726185c-f87b-480b-b301-c3b932a4156b",
             "Value": {
                 "id": "12c307e9-752f-4d89-985c-3412a3dfe31f",
@@ -491,14 +427,6 @@
             "Value": {
                 "id": "d9a8d18e-e528-466c-b4c8-b62261d9bf5b",
                 "resourcePath": "sprites\\spr_solid3_3\\spr_solid3_3.yy",
-                "resourceType": "GMSprite"
-            }
-        },
-        {
-            "Key": "793174df-b8fe-4fc7-95d8-2f1706091b42",
-            "Value": {
-                "id": "509bb8ee-5004-46fa-8dc6-da77ce41c648",
-                "resourcePath": "sprites\\background15\\background15.yy",
                 "resourceType": "GMSprite"
             }
         },
@@ -527,30 +455,6 @@
             }
         },
         {
-            "Key": "826c7f55-e4d0-4b91-84e4-3ed50afe5d50",
-            "Value": {
-                "id": "1d6161f6-4e37-406c-ba97-e63faca68c77",
-                "resourcePath": "sprites\\background19\\background19.yy",
-                "resourceType": "GMSprite"
-            }
-        },
-        {
-            "Key": "85ad8638-f378-4e4c-8710-c16c27b5c23f",
-            "Value": {
-                "id": "9e3548c4-a779-4481-b8a0-e475019f5c91",
-                "resourcePath": "sprites\\background5\\background5.yy",
-                "resourceType": "GMSprite"
-            }
-        },
-        {
-            "Key": "8661a500-ca2c-45cd-99e6-03a8cc557113",
-            "Value": {
-                "id": "39c8b21f-de69-4f2c-98e3-f5b4cc3ed2a9",
-                "resourcePath": "sprites\\background11\\background11.yy",
-                "resourceType": "GMSprite"
-            }
-        },
-        {
             "Key": "86a7deea-7cd5-44b9-b35d-f87a5089d003",
             "Value": {
                 "id": "3cd6070a-b33a-40bc-baee-84f3fe179a9a",
@@ -564,14 +468,6 @@
                 "id": "49678e4c-f571-4768-968b-45188a500ed0",
                 "resourcePath": "scripts\\scr_move_round\\scr_move_round.yy",
                 "resourceType": "GMScript"
-            }
-        },
-        {
-            "Key": "8a9514d9-a675-4910-b41b-928bd46bb009",
-            "Value": {
-                "id": "c85df300-50df-4125-b8c5-473e40c64177",
-                "resourcePath": "sprites\\background14\\background14.yy",
-                "resourceType": "GMSprite"
             }
         },
         {
@@ -719,14 +615,6 @@
             }
         },
         {
-            "Key": "ae3e3028-b2c6-4ff2-a204-c5a21e4ad921",
-            "Value": {
-                "id": "aa7f766f-6abb-4f28-aa9a-c7b62805a5d6",
-                "resourcePath": "sprites\\background18\\background18.yy",
-                "resourceType": "GMSprite"
-            }
-        },
-        {
             "Key": "bb719ae1-79dd-4b41-9a10-c435b2de45fc",
             "Value": {
                 "id": "287e292a-f70b-4874-802a-af2ccc1417cb",
@@ -807,14 +695,6 @@
             }
         },
         {
-            "Key": "d2733af8-d6b9-4150-a3b8-91da04cdbf6e",
-            "Value": {
-                "id": "6303f5dd-319e-42c8-a8a6-7b0e10249833",
-                "resourcePath": "sprites\\cloud_red\\cloud_red.yy",
-                "resourceType": "GMSprite"
-            }
-        },
-        {
             "Key": "d3386839-7516-4645-a4c1-1c5c34c019e7",
             "Value": {
                 "id": "f8335090-26e1-4c99-8221-7615fd488344",
@@ -855,22 +735,6 @@
             }
         },
         {
-            "Key": "dfa256c0-9024-42e1-be06-263c6b2515a2",
-            "Value": {
-                "id": "089beae3-6dba-4064-a8b2-b7e095140ecd",
-                "resourcePath": "sprites\\background13\\background13.yy",
-                "resourceType": "GMSprite"
-            }
-        },
-        {
-            "Key": "e153dda5-54a9-46ed-855f-950bf1e4bc83",
-            "Value": {
-                "id": "d9a3dcc5-6227-4dda-9595-d5c99b129a43",
-                "resourcePath": "sprites\\background8\\background8.yy",
-                "resourceType": "GMSprite"
-            }
-        },
-        {
             "Key": "e72aa5b1-fbad-4666-9b13-5e05e5872330",
             "Value": {
                 "id": "ceb6aa7a-ec8d-47f4-b915-02b3bac341d2",
@@ -887,34 +751,10 @@
             }
         },
         {
-            "Key": "eb7e0d7f-e9c9-49eb-8b91-b2712a92b8fb",
-            "Value": {
-                "id": "1be17536-547e-4bac-a92f-249025c05cbd",
-                "resourcePath": "sprites\\background9\\background9.yy",
-                "resourceType": "GMSprite"
-            }
-        },
-        {
             "Key": "ec2e6d92-fe76-4198-86d3-856d3c997811",
             "Value": {
                 "id": "b86efd1d-a76b-42f8-806b-16878a4fcc41",
                 "resourcePath": "sprites\\spr_solid2_4\\spr_solid2_4.yy",
-                "resourceType": "GMSprite"
-            }
-        },
-        {
-            "Key": "ed528b21-e516-4c7a-a9cc-6368a2216874",
-            "Value": {
-                "id": "96614a81-febe-4acc-b631-b31cd26c6ce6",
-                "resourcePath": "sprites\\background4\\background4.yy",
-                "resourceType": "GMSprite"
-            }
-        },
-        {
-            "Key": "ed94f6c0-67d9-4fbf-80b7-e28e128b2473",
-            "Value": {
-                "id": "ea2e5991-fa04-4bc2-b306-08d08eed00af",
-                "resourcePath": "sprites\\background17\\background17.yy",
                 "resourceType": "GMSprite"
             }
         },
@@ -935,14 +775,6 @@
             }
         },
         {
-            "Key": "f189909a-f573-40be-94ff-e67b93183d15",
-            "Value": {
-                "id": "06edd8b4-b9c1-4a47-90cd-d25fed3fecf8",
-                "resourcePath": "sprites\\background20\\background20.yy",
-                "resourceType": "GMSprite"
-            }
-        },
-        {
             "Key": "f2054e4f-c80a-49c1-a519-a17183dbbeaf",
             "Value": {
                 "id": "cca4bb80-7e51-4cb2-8afe-5b2d3cc263ca",
@@ -956,14 +788,6 @@
                 "id": "fb65e3fd-9177-4f2d-a3b3-28179e9ae06f",
                 "resourcePath": "sprites\\background10\\background10.yy",
                 "resourceType": "GMSprite"
-            }
-        },
-        {
-            "Key": "f265f758-2a52-4b05-8da6-e674774c574f",
-            "Value": {
-                "id": "62f46a01-535e-4f0d-ace1-b5c0c44aafc1",
-                "resourcePath": "datafiles_yy\\levelDB.txt.yy",
-                "resourceType": "GMIncludedFile"
             }
         },
         {
