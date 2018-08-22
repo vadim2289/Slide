@@ -8,3 +8,4 @@ type_obj="obj_move_enemy"
 sprite_id="spr_move_pie"
 speed_move=1.5
 
+status_=true

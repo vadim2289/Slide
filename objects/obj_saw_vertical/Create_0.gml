@@ -10,3 +10,4 @@ x_big_radius=0
 y_big_radius=0
 type_obj="obj_saw_vertical"
 sprite_id="spr_saw_vert"
+status_=true

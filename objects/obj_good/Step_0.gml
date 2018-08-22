@@ -12,6 +12,6 @@ x=global.x_+lengthdir_x(global.radius_+height_radius,alpha);
 y=global.y_+lengthdir_y(global.radius_+height_radius,alpha);
 
 
-if(alpha>=600){
+if(alpha>=630){
 	instance_destroy();
 }

@@ -7,4 +7,4 @@ height_radius=0;
 type_obj="obj_pie_up"
 sprite_id="spr_pie_up"
 
-
+status_=true

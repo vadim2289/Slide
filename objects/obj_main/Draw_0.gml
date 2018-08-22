@@ -7,6 +7,8 @@ draw_text(100,100,fps)
 draw_text(room_width/2,100,score)
 
 draw_text(room_width/2,300,global.testing)
+draw_text(room_width/2,400,sector_r.rotation_start-90)
+draw_text(room_width/2,500,global.shift_count)
 
 draw_set_font(font_sector)
 draw_set_color(c_black)

@@ -6,3 +6,4 @@ height_radius=-50;
 new_solid=noone
 
 
+status_=true

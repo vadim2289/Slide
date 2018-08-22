@@ -1,5 +1,8 @@
 /// @description Insert description here
 // You can write your code in this editor
+
+if(!restart_mode){
+
 button_key=keyboard_check_pressed(vk_up)
 button_down=keyboard_check(vk_down);
 key_horizon=keyboard_check(vk_right)-keyboard_check(vk_left);
@@ -8,32 +11,67 @@ if(!place_meeting(global.x_+lengthdir_x(result_radius-1,alpha),global.y_+lengthd
 	vertical_speed-=gravity_	
 }
 */
-vertical_speed-=gravity_	
+if(!global.pause){
+	vertical_speed-=gravity_	
 
-if(key_horizon>0){
-	horizontal_speed-=acceleration_	
-	horizontal_speed=clamp(horizontal_speed,0,-speed_);	
-	image_speed=2	
-}else if(key_horizon<0){
-	horizontal_speed+=acceleration_
-	horizontal_speed=clamp(abs(horizontal_speed),0,speed_*1.5);
-	image_speed=0
-}else{
-	horizontal_speed=lerp(horizontal_speed,0,acceleration_*1.5)
-	image_speed=1
+	if(key_horizon>0){
+		horizontal_speed-=acceleration_	
+		horizontal_speed=clamp(horizontal_speed,0,-speed_);	
+		image_speed=2	
+	}else if(key_horizon<0){
+		horizontal_speed+=acceleration_
+		horizontal_speed=clamp(abs(horizontal_speed),0,speed_*1.5);
+		image_speed=0
+	}else{
+		horizontal_speed=lerp(horizontal_speed,0,acceleration_*1.5)
+		image_speed=1
+	}
+	alpha+=horizontal_speed;
 }
-alpha+=horizontal_speed;
-
 var x_future=global.x_+lengthdir_x(result_radius+vertical_speed,alpha);
 var y_future=global.y_+lengthdir_y(result_radius+vertical_speed,alpha);
 var x_future_1=global.x_+lengthdir_x(result_radius+sign(vertical_speed),alpha);
 var y_future_1=global.y_+lengthdir_y(result_radius+sign(vertical_speed),alpha);
 var result_radius_local=result_radius
 if(place_meeting(x_future,y_future,obj_enemy)){
-	global.testing="BAH-BABAH"
-	alarm[0]=10
+	var inst= instance_place(x_future,y_future,obj_enemy)
+	if(inst.type_obj=="obj_good"){
+		global.pause=true
+		alarm[2]=50
+		loot="good"
+		//alarm[1]=inst.time_
+		instance_destroy(inst)		
+	}else if(inst.type_obj=="obj_bad"){
+		global.pause=true
+		alarm[2]=50
+		loot="bad"
+		//alarm[1]=inst.time_
+		//global.speed_=inst.speed_
+		//bad_active=inst.speed_
+		instance_destroy(inst)
+	}
+	else if(super_power==false){
+		gravity_=0
+		super_power=true
+		alarm[0]=20
+		result_radius=1500
+		result_radius_local=result_radius
+		alpha=90
+		scr_restart()
+	}
 }
-
+if(!global.pause){
+	if(bad_active>0){
+		global.speed_=lerp(global.speed_,bad_active,0.01);	
+	}else if(bad_active<0){
+		global.speed_=lerp(global.speed_,0.3,0.05)
+		if(global.speed_==0.3){
+			bad_active=0
+			super_power=false
+			global.testing=""
+		}
+	}
+}
 if(place_meeting(x_future,y_future,obj_eath)){
 	AI="on_eath"
 	//Доводим персонаж плавно с шагом +1 или -1 до момента соприкосновения с объектом.	
@@ -49,8 +87,16 @@ if(place_meeting(x_future,y_future,obj_eath)){
 		//show_debug_message("while place_meeting_"+string(result_radius_local)+" dopusk "+string(abs(result_radius-result_radius_local)))
 		if(abs(result_radius-result_radius_local)>dopusk){// если игрок проваливается в солид больше чем на 20 пикселей, то конец, если меньше, то нор, встает наверх
 			//game_restart()
-			global.testing="BAH-BABAH"
-			alarm[0]=10
+			if(!super_power){
+				super_power=true
+					result_radius=1500
+					gravity_=0
+					result_radius_local=result_radius
+					alpha=90
+					alarm[0]=20
+					
+					scr_restart()
+			}
 			break; // остновка while после рестарта, чтобы не считал до конца			
 		}
 	}	
@@ -76,7 +122,7 @@ if(place_meeting(x_future,y_future,obj_eath)){
 		}
 	}else{
 		result_radius=inst.height_radius+global.radius_-1
-		//show_debug_message("solid_fall"+string(result_radius))
+		show_debug_message("solid_fall"+string(result_radius))
 	}
 
 }else{
@@ -93,13 +139,16 @@ if(button_key){
 	show_debug_message(AI)
 	show_debug_message(vertical_speed)
 }
-if(button_key>0&&AI="on_eath"){		
-	vertical_speed=button_key*jump_
+if(!global.pause){
+	if(button_key>0&&AI="on_eath"){		
+		vertical_speed=button_key*jump_
+	}
 }
 
 result_radius+=vertical_speed;
-
+//show_debug_message("solid_fall"+string(result_radius))
 x=global.x_+lengthdir_x(result_radius,alpha); 
 y=global.y_+lengthdir_y(result_radius,alpha);
 
 
+}

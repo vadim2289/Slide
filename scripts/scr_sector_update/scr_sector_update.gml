@@ -8,8 +8,12 @@ if(global.string_end!="-1"){ // если не первый проход
 			
 	var result_row=irandom_range(int64(global.string_end)*10,int64(global.string_end)*10+9) // рандомный выбор из выбранного десятка секторов базы
 //	global.log+="X"+string(result_row)
-
-
+	if(global.last_sector!=3){
+		global.last_sector+=1
+	}else{
+		global.last_sector=0
+	}
+	show_debug_message(global.last_sector)
 	//global.number_+=1
 	//result_row=global.number_
 	//if result_row>49{

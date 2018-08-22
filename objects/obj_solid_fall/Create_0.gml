@@ -8,3 +8,4 @@ type_obj=""
 sprite_id=""
 fall_=false
 time_=50
+status_=true

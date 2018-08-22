@@ -5,7 +5,7 @@ y_start=0;
 x_end=0;
 y_end=500;
 //meteor_start=false;
-alarm[0]=100
+alarm[0]=5000
 //direction=point_direction(x,y,100,500)
 
 type_obj="obj_meteor"

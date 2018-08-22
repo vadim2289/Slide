@@ -14,6 +14,6 @@
 	x=x_big_radius+lengthdir_x(little_radius,alpha_little_radius);
 	y=y_big_radius+lengthdir_y(little_radius,alpha_little_radius);
 
-if(alpha>=600){
+if(alpha>=630){
 	instance_destroy();
 }

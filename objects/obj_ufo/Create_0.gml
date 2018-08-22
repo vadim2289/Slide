@@ -9,7 +9,7 @@ y_end=10;
 x=x_start
 y=y_start
 //meteor_start=false;
-alarm[0]=100
+alarm[0]=7000
 //direction=point_direction(x,y,100,500)
 count_stop=4
 

@@ -3,7 +3,9 @@
 global.radius_=825;
 global.x_=room_width/2;
 global.y_=room_height+415;
+//global.y_=room_height-2*415;
 global.speed_=0.3;
+global.max_speed_=0.3;
 global.sector_numb=0;
 global.max_=3;
 global.DB=ds_grid_create(100,43)
@@ -12,7 +14,10 @@ global.play_=true
 global.testing=""
 global.log=""
 global.number_=0
-
+global.pause=false
+global.last_sector=1
+global.shift=0
+global.shift_count=0
 //global.string_write=""
 
 
@@ -34,7 +39,7 @@ new_ufo=instance_create_layer(-10,-20,"Instances",obj_ufo)
 sector_r=instance_create_layer(global.x_,global.y_,"Instances",obj_eath); // правая точка
 sector_r.rotation_start=90;
 
-sector_r.sprite_index=0;/*
+sector_r.sprite_index=spr_circle_LR;/*
 sector_r.sprite_index=2;
 sector_r.sprite_index=3;
 sector_r.sprite_index=4;
@@ -47,7 +52,7 @@ sector_r.sprite_index=7;
 
 sector_u=instance_create_layer(global.x_,global.y_,"Instances",obj_eath); // верхнаяя точка
 sector_u.rotation_start=180;
-sector_u.sprite_index=1;
+sector_u.sprite_index=0;
 
 sector_l=instance_create_layer(global.x_,global.y_,"Instances",obj_eath); // левая точка
 sector_l.rotation_start=270;
@@ -55,7 +60,7 @@ sector_l.sprite_index=0;
 
 sector_d=instance_create_layer(global.x_,global.y_,"Instances",obj_eath); // нижняя точка
 sector_d.rotation_start=0;
-sector_d.sprite_index=1;
+sector_d.sprite_index=0;
 
 if (file_exists(working_directory +"levelDB.txt")){
 	var file=file_text_open_read(working_directory +"levelDB.txt");

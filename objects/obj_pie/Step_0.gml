@@ -7,7 +7,8 @@ alpha+=global.speed_;
 //alpha=degtorad(0);
 //alpha_grad=radtodeg(alpha)
 
-if(alpha>=600){
+
+if(alpha>=630){
 	instance_destroy();
 }
 image_angle=alpha-90;
