@@ -7,9 +7,9 @@
 	//global.speed_=clamp(abs(global.speed_),0,0.4);	
 	//global.speed_=0
 }*/
-/*
+
 if(global.speed_!=0.3){
 	global.speed_=0.3
 }else{
-	global.speed_=-0.3	
-}*/
+	global.speed_=0	
+}

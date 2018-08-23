@@ -1,7 +1,7 @@
 /// @description Insert description here
 // You can write your code in this editor
 
-if(!restart_mode){
+
 
 button_key=keyboard_check_pressed(vk_up)
 button_down=keyboard_check(vk_down);
@@ -33,6 +33,25 @@ var y_future=global.y_+lengthdir_y(result_radius+vertical_speed,alpha);
 var x_future_1=global.x_+lengthdir_x(result_radius+sign(vertical_speed),alpha);
 var y_future_1=global.y_+lengthdir_y(result_radius+sign(vertical_speed),alpha);
 var result_radius_local=result_radius
+
+if(x_future<0){
+	scr_restart()
+		gravity_=0
+		super_power=true
+		alarm[0]=20
+		result_radius=1500
+		result_radius_local=result_radius
+		alpha=90
+}
+if(y_future>room_height){
+	scr_restart()
+		gravity_=0
+		super_power=true
+		alarm[0]=20
+		result_radius=1500
+		result_radius_local=result_radius
+		alpha=90
+}
 if(place_meeting(x_future,y_future,obj_enemy)){
 	var inst= instance_place(x_future,y_future,obj_enemy)
 	if(inst.type_obj=="obj_good"){
@@ -51,13 +70,14 @@ if(place_meeting(x_future,y_future,obj_enemy)){
 		instance_destroy(inst)
 	}
 	else if(super_power==false){
+		/*
+		scr_restart()
 		gravity_=0
 		super_power=true
 		alarm[0]=20
 		result_radius=1500
 		result_radius_local=result_radius
-		alpha=90
-		scr_restart()
+		alpha=90*/
 	}
 }
 if(!global.pause){
@@ -88,14 +108,14 @@ if(place_meeting(x_future,y_future,obj_eath)){
 		if(abs(result_radius-result_radius_local)>dopusk){// если игрок проваливается в солид больше чем на 20 пикселей, то конец, если меньше, то нор, встает наверх
 			//game_restart()
 			if(!super_power){
-				super_power=true
+				
+				super_power=true					
+					scr_restart()
 					result_radius=1500
 					gravity_=0
 					result_radius_local=result_radius
 					alpha=90
 					alarm[0]=20
-					
-					scr_restart()
 			}
 			break; // остновка while после рестарта, чтобы не считал до конца			
 		}
@@ -122,7 +142,7 @@ if(place_meeting(x_future,y_future,obj_eath)){
 		}
 	}else{
 		result_radius=inst.height_radius+global.radius_-1
-		show_debug_message("solid_fall"+string(result_radius))
+		//show_debug_message("solid_fall"+string(result_radius))
 	}
 
 }else{
@@ -136,8 +156,8 @@ if(button_down>0){
 	image_angle=alpha-90
 }
 if(button_key){
-	show_debug_message(AI)
-	show_debug_message(vertical_speed)
+	//show_debug_message(AI)
+	//show_debug_message(vertical_speed)
 }
 if(!global.pause){
 	if(button_key>0&&AI="on_eath"){		
@@ -150,5 +170,3 @@ result_radius+=vertical_speed;
 x=global.x_+lengthdir_x(result_radius,alpha); 
 y=global.y_+lengthdir_y(result_radius,alpha);
 
-
-}

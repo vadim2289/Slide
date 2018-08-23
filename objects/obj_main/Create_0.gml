@@ -2,8 +2,8 @@
 // You can write your code in this editor
 global.radius_=825;
 global.x_=room_width/2;
-global.y_=room_height+415;
-//global.y_=room_height-2*415;
+//global.y_=room_height+415;
+global.y_=room_height-3*415;
 global.speed_=0.3;
 global.max_speed_=0.3;
 global.sector_numb=0;
@@ -18,6 +18,7 @@ global.pause=false
 global.last_sector=1
 global.shift=0
 global.shift_count=0
+
 //global.string_write=""
 
 
@@ -39,7 +40,7 @@ new_ufo=instance_create_layer(-10,-20,"Instances",obj_ufo)
 sector_r=instance_create_layer(global.x_,global.y_,"Instances",obj_eath); // правая точка
 sector_r.rotation_start=90;
 
-sector_r.sprite_index=spr_circle_LR;/*
+sector_r.sprite_index=spr_circle_F;/*
 sector_r.sprite_index=2;
 sector_r.sprite_index=3;
 sector_r.sprite_index=4;
@@ -47,20 +48,23 @@ sector_r.sprite_index=5;
 sector_r.sprite_index=6;
 sector_r.sprite_index=7;
 */
-
+sector_r.sector_id=0
 
 
 sector_u=instance_create_layer(global.x_,global.y_,"Instances",obj_eath); // верхнаяя точка
 sector_u.rotation_start=180;
-sector_u.sprite_index=0;
+sector_u.sprite_index=spr_circle_F;
+sector_u.sector_id=0
 
 sector_l=instance_create_layer(global.x_,global.y_,"Instances",obj_eath); // левая точка
 sector_l.rotation_start=270;
-sector_l.sprite_index=0;
+sector_l.sprite_index=spr_circle_F;
+sector_l.sector_id=0
 
 sector_d=instance_create_layer(global.x_,global.y_,"Instances",obj_eath); // нижняя точка
 sector_d.rotation_start=0;
-sector_d.sprite_index=0;
+sector_d.sprite_index=spr_circle_F;
+sector_d.sector_id=0
 
 if (file_exists(working_directory +"levelDB.txt")){
 	var file=file_text_open_read(working_directory +"levelDB.txt");

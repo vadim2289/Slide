@@ -7,6 +7,12 @@ start_alpha=image_angle+90
 x=global.x_+lengthdir_x(global.radius_+height_radius,alpha); 
 y=global.y_+lengthdir_y(global.radius_+height_radius,alpha);
 
-if(alpha>=630){
-	instance_destroy();
+if(alpha>=360||alpha<=-360){
+	alpha-=360*sign(global.speed_);	
+}
+if(global.shift==0){
+	if(alpha>=270){
+		show_debug_message("destroy "+string(alpha))
+		instance_destroy();
+	}
 }

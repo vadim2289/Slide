@@ -18,6 +18,10 @@ if(alarm_true&&image_index > image_number-1){
 		alarm[0]=time_pause	
 		//show_debug_message(alarm_true)
 }	
-if(alpha>=630){
+if(alpha>=360||alpha<=-360){
+	alpha-=360*sign(global.speed_);	
+}
+
+if(alpha>=270){
 	instance_destroy();
 }

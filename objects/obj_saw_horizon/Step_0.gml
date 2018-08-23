@@ -14,6 +14,10 @@
 	y=global.y_+lengthdir_y(global.radius_+height_radius,alpha_little_radius);
 
 
-if(alpha>=630){
+if(alpha>=360||alpha<=-360){
+	alpha-=360*sign(global.speed_);	
+}
+
+if(alpha>=270){
 	instance_destroy();
 }

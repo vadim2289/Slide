@@ -13,7 +13,9 @@
 
 	x=x_big_radius+lengthdir_x(little_radius,alpha_little_radius);
 	y=y_big_radius+lengthdir_y(little_radius,alpha_little_radius);
-
-if(alpha>=630){
+if(alpha>=360||alpha<=-360){
+	alpha-=360*sign(global.speed_);	
+}
+if(alpha>=270){
 	instance_destroy();
 }

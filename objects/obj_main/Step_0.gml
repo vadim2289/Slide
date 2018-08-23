@@ -16,7 +16,7 @@ if(global.shift!=0){
 				global.speed_=sign(global.speed_)*global.shift_count	
 		}
 	}else{
-		obj_pl.restart_mode=false
+		
 		global.shift=0
 		alarm[0]=50		
 	}

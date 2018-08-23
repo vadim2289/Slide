@@ -3,17 +3,13 @@ var object_loc=noone
 var alpha_loc=0
 var height_radius_loc=0
 var sprite_id_loc=""
-score+=5
+//score+=5
+
+
 if(global.string_end!="-1"){ // если не первый проход
 			
 	var result_row=irandom_range(int64(global.string_end)*10,int64(global.string_end)*10+9) // рандомный выбор из выбранного десятка секторов базы
 //	global.log+="X"+string(result_row)
-	if(global.last_sector!=3){
-		global.last_sector+=1
-	}else{
-		global.last_sector=0
-	}
-	show_debug_message(global.last_sector)
 	//global.number_+=1
 	//result_row=global.number_
 	//if result_row>49{
@@ -21,7 +17,7 @@ if(global.string_end!="-1"){ // если не первый проход
 //		global.number_=0
 //	}
 	//result_row=6
-	
+	show_debug_message("CREATE!!!!!!!!!!! "+string(result_row))
 	global.string_end= scr_random_range(global.DB[# result_row,2])	// выбираем вид сектора из допустимых для следующего прохода
 	//global.string_end=string(irandom_range(0,1))
 	//global.string_end= "0" // временно
@@ -53,11 +49,12 @@ if(global.string_end!="-1"){ // если не первый проход
 				global.y_+lengthdir_y(global.radius_+height_radius_loc,alpha_loc),"Instances",
 				object_loc);  // создаем экземпляр объекта по взятым параметрам
 			new_solid.sprite_index=sprite_id_loc // назначаем ему спрайт
-			new_solid.alpha=alpha_loc //  назначаем ему угол
+			new_solid.alpha=alpha_loc-360 //  назначаем ему угол
 			new_solid.height_radius=height_radius_loc // назначаем ему высоту
-			new_solid.start_alpha=alpha_loc //  назначаем ему стартовый угол
+			new_solid.start_alpha=alpha_loc-360 //  назначаем ему стартовый угол
 			new_solid.image_angle=alpha_loc-90 //  поворачиваем его спрайт по углу
 			//show_debug_message(" string_end "+string(global.string_end)+" result_row "+string(result_row)+" !! "+string(new_solid.sprite_index))
+			//show_debug_message("alpha_create_solid "+string(alpha_loc)+" rotation_start "+string(rotation_start))
 		}
 		j--
 	}		
@@ -65,7 +62,7 @@ if(global.string_end!="-1"){ // если не первый проход
 			
 }else{ // если первый проход в самом начале игры
 	//global.string_end="0";
-	var result_row=0 // 0 для первого прохода
+	var result_row=5 // 0 для первого прохода
 	//var result_row=irandom_range(5,9)
 	global.string_end= scr_random_range(global.DB[# result_row,2])	 // выбираем вид сектора из допустимых для следующего прохода
 	//global.testing=" string_end "+string(global.string_end)+" result_row "+string(result_row)
@@ -101,9 +98,9 @@ if(global.string_end!="-1"){ // если не первый проход
 				object_loc);
 				
 			new_solid.sprite_index=sprite_id_loc
-			new_solid.alpha=alpha_loc
+			new_solid.alpha=alpha_loc-360
 			new_solid.height_radius=height_radius_loc
-			new_solid.start_alpha=alpha_loc
+			new_solid.start_alpha=alpha_loc-360
 			new_solid.image_angle=alpha_loc-90
 			
 			//show_debug_message(" string_end "+string(global.string_end)+" result_row "+string(result_row)+" !! "+string(new_solid.sprite_index))

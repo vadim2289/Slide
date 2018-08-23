@@ -18,4 +18,4 @@ dopusk=16 // насколько глубоко можно проваливать
 
 bad_active=0
 
-restart_mode=false
+
