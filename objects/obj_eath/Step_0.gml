@@ -1,10 +1,6 @@
 /// @description Insert description here
 // You can write your code in this editor
-if(global.pause){
-	vertical_speed=0
-	horizontal_speed=0
-	global.speed_=0
-}
+
 
 rotation_start+=global.speed_;
 

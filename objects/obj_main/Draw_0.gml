@@ -6,9 +6,16 @@ draw_text(100,100,fps)
 //draw_text(100,200,sector_r.rotation_start)
 draw_text(room_width/2,100,score)
 
-draw_text(room_width/2,300,global.testing)
-draw_text(room_width/2,400,sector_r.rotation_start)
-draw_text(room_width/2,500,global.shift_count)
+draw_text(room_width/2-50,200,"testing: "+string(global.testing))
+draw_text(room_width/2-10,250,"sector_r rotation: "+string(sector_r.rotation_start))
+if(instance_exists(global.test_instance_prev)){
+	draw_text(room_width/2-10,300,"sector_previous instance_alpha: "+string(global.test_instance_prev.alpha))
+}
+
+if(instance_exists(global.test_instance_post)){
+	draw_text(room_width/2-10,350,"sector_post instance_alpha: "+string(global.test_instance_post.alpha))
+}
+
 
 draw_set_font(font_sector)
 draw_set_color(c_black)

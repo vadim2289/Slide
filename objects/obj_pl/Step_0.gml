@@ -1,7 +1,11 @@
 /// @description Insert description here
 // You can write your code in this editor
 
-
+if(global.pause){
+	vertical_speed=0
+	horizontal_speed=0
+	global.speed_=0
+}
 
 button_key=keyboard_check_pressed(vk_up)
 button_down=keyboard_check(vk_down);
@@ -116,6 +120,7 @@ if(place_meeting(x_future,y_future,obj_eath)){
 					result_radius_local=result_radius
 					alpha=90
 					alarm[0]=20
+					break; // остновка while после рестарта, чтобы не считал до конца			
 			}
 			break; // остновка while после рестарта, чтобы не считал до конца			
 		}

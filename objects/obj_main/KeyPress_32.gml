@@ -8,8 +8,8 @@
 	//global.speed_=0
 }*/
 
-if(global.speed_!=0.3){
-	global.speed_=0.3
+if(global.pause){
+	global.pause=false
 }else{
-	global.speed_=0	
+	global.pause=true
 }

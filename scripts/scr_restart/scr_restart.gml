@@ -7,7 +7,7 @@ var after_i=0
 var result_previous=0
 var result_after=0
 var result_post_previous=0
-
+global.testing=""
 ar[3]=obj_main.sector_r
 ar[2]=obj_main.sector_u
 ar[1]=obj_main.sector_l
@@ -18,12 +18,12 @@ repeat(4){
 	if(alpha_target<=90&&alpha_target>=0){
 		
 		result=ar[i]
-		show_debug_message(string(ar[i].rotation_start)+" "+"RESULT i "+string(i))
+		//show_debug_message(string(ar[i].rotation_start)+" "+"RESULT i "+string(i))
 		break;		
 	}
 	i--
 }
-show_debug_message("RESULT i "+string(i))
+show_debug_message(string(ar[i].rotation_start)+" "+"RESULT i "+string(i))
 if(i==0){
 	previous_i=3
 }else{
@@ -45,7 +45,7 @@ if(i==3){
 }
 result_after=ar[after_i]
 show_debug_message(string(result.sector_id)+" pr "+string(result_previous.sector_id)+"  post "+string(result_post_previous.sector_id)+"  after "+string(result_after.sector_id))
-global.testing="Crash in sector "+string(result.sector_id)+"   "+string(result.rotation_start)+"   "+string(alpha)
+global.testing="Crash in sector "+string(result.sector_id)+" sector_result_rot:  "+string(result.rotation_start)+"  player_alpha: "+string(alpha)
 
 if(result.rotation_start>180){	
 	show_debug_message(string(result.sector_id)+" >180 alpha "+string(result.rotation_start))
@@ -102,6 +102,8 @@ if(result.rotation_start>180){
 			result_previous.new_solid.start_alpha=alpha_loc //  назначаем ему стартовый угол
 			result_previous.new_solid.image_angle=alpha_loc-90 //  поворачиваем его спрайт по углу
 			show_debug_message(" inatsnace_create_previous "+string(result_previous.new_solid.alpha))
+			global.test_instance_prev=result_previous.new_solid
+			
 		}
 		j--
 	}		
@@ -133,11 +135,12 @@ if(result.rotation_start>180){
 				global.y_+lengthdir_y(global.radius_+height_radius_loc,alpha_loc),"Instances",
 				object_loc);  // создаем экземпляр объекта по взятым параметрам
 			result_post_previous.new_solid.sprite_index=sprite_id_loc // назначаем ему спрайт
-			result_post_previous.new_solid.alpha=alpha_loc //  назначаем ему угол
+			result_post_previous.new_solid.alpha=alpha_loc+360 //  назначаем ему угол
 			result_post_previous.new_solid.height_radius=height_radius_loc // назначаем ему высоту
-			result_post_previous.new_solid.start_alpha=alpha_loc //  назначаем ему стартовый угол
+			result_post_previous.new_solid.start_alpha=alpha_loc+360 //  назначаем ему стартовый угол
 			result_post_previous.new_solid.image_angle=alpha_loc-90 //  поворачиваем его спрайт по углу
-			show_debug_message(" inatsnace_create_post "+string(result_previous.new_solid.alpha))
+			//show_debug_message(" inatsnace_create_post "+string(result_previous.new_solid.alpha))
+			global.test_instance_post=result_post_previous.new_solid
 			//show_debug_message(" string_end "+string(result_post_previous.new_solid.alpha))
 		}
 		j--
