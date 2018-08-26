@@ -1,6 +1,6 @@
 /// @description Insert description here
 // You can write your code in this editor
-x_start=irandom_range(0,room_width);
+x_start=irandom_range(-100,room_width);
 y_start=-10;
 
 if(x_start>=room_width/2){

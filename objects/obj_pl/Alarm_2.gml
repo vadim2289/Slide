@@ -1,6 +1,6 @@
 /// @description Pause when bad or good start
 // You can write your code in this editor
-global.speed_=0.3
+global.speed_=global.max_speed_
 if(loot=="good"){
 		super_power=true	
 		global.testing="goood"

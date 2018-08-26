@@ -3,15 +3,16 @@
 
 
 
+if(!global.first_after_shift){
 	alpha+=global.speed_	
+}
 	image_angle=alpha-90
 	start_alpha=image_angle+90
 	alpha_little_radius=alpha+12*sin(alpha/7) // horizon
 	//alpha_little_radius=alpha// horizon
 	//rad_=50*sin(alpha/4)
 	
-	x=global.x_+lengthdir_x(global.radius_+height_radius,alpha_little_radius);
-	y=global.y_+lengthdir_y(global.radius_+height_radius,alpha_little_radius);
+	
 
 
 if(alpha>=360||alpha<=-360){
@@ -21,3 +22,5 @@ if(alpha>=360||alpha<=-360){
 if(alpha>=270){
 	instance_destroy();
 }
+x=global.x_+lengthdir_x(global.radius_+height_radius,alpha_little_radius);
+y=global.y_+lengthdir_y(global.radius_+height_radius,alpha_little_radius);

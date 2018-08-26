@@ -2,7 +2,7 @@
 // You can write your code in this editor
 find_place=false
 laser=false
-x_start=-20;
+x_start=-50;
 y_start=room_height/10;
 x_end=0;
 y_end=10;

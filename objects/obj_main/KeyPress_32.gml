@@ -8,8 +8,13 @@
 	//global.speed_=0
 }*/
 
-if(global.pause){
+if(global.pause_game){
 	global.pause=false
+	global.pause_game=false
+	global.speed_=global.save_speed_
 }else{
 	global.pause=true
+	global.pause_game=true
+	global.save_speed_=global.speed_
+	global.speed_=0
 }

@@ -6,6 +6,7 @@ global.y_=room_height+415;
 //global.y_=room_height-3*415;
 global.speed_=0.3;
 global.max_speed_=0.3;
+global.save_speed_=0;
 global.sector_numb=0;
 global.max_=3;
 global.DB=ds_grid_create(100,43)
@@ -15,13 +16,16 @@ global.testing=""
 global.log=""
 global.number_=0
 global.pause=false
+global.pause_game=false
 global.last_sector=1
 global.shift=0
 global.shift_count=0
+global.first_after_shift=false
 
 
 global.test_instance_prev=noone
 global.test_instance_post=noone
+global.testing_solid=0
 
 //global.string_write=""
 
@@ -37,8 +41,8 @@ instance_create_layer(global.x_,global.y_-global.radius_-150,"Instances",obj_pl)
 //wall22.height_radius=155
 //wall22.alpha=270
 
-new_meteor=instance_create_layer(0,0,"Instances",obj_meteor)
-new_ufo=instance_create_layer(-10,-20,"Instances",obj_ufo)
+new_meteor=instance_create_layer(-50,0,"Instances",obj_meteor)
+new_ufo=instance_create_layer(-50,-20,"Instances",obj_ufo)
 
 
 sector_r=instance_create_layer(global.x_,global.y_,"Instances",obj_eath); // правая точка
