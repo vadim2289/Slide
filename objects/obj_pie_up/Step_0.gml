@@ -7,11 +7,11 @@ image_angle=alpha-90
 start_alpha=image_angle+90
 
 
-
-if(alpha>=360||alpha<=-360){
-	alpha-=360*sign(global.speed_);	
-}
-
+	if(alpha>=360){
+		alpha-=360
+	}else if(alpha<-90){
+		alpha+=360
+	}
 if(alpha>=270){
 	instance_destroy();
 }

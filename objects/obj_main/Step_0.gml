@@ -37,7 +37,7 @@ if(!global.pause_game){
 					global.speed_=sign(global.speed_)*global.shift_count	
 			}
 		}else{
-		
+			
 			global.shift=0
 			alarm[0]=50		
 		}

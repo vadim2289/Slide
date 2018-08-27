@@ -16,8 +16,8 @@ if(global.string_end!="-1"){ // если не первый проход
 	//	result_row=0
 //		global.number_=0
 //	}
-	//result_row=53
-	//round(random_range(50,51))
+	//result_row=50
+	round(random_range(50,51))
 	show_debug_message("CREATE!!!!!!!!!!! "+string(result_row))
 	global.string_end= scr_random_range(global.DB[# result_row,2])	// выбираем вид сектора из допустимых для следующего прохода
 	//global.string_end=string(irandom_range(0,1))
@@ -63,7 +63,7 @@ if(global.string_end!="-1"){ // если не первый проход
 			
 }else{ // если первый проход в самом начале игры
 	//global.string_end="0";
-	var result_row=1 // 0 для первого прохода
+	var result_row=50 // 0 для первого прохода
 	//var result_row=irandom_range(5,9)
 	global.string_end= scr_random_range(global.DB[# result_row,2])	 // выбираем вид сектора из допустимых для следующего прохода
 	//global.testing=" string_end "+string(global.string_end)+" result_row "+string(result_row)

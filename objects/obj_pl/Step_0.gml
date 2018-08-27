@@ -66,6 +66,7 @@ if(!global.pause){
 			instance_destroy(inst)
 		}
 		else if(super_power==false){	
+			/*
 			global.pause=true	
 			scr_restart()
 			gravity_=0
@@ -74,6 +75,7 @@ if(!global.pause){
 			result_radius=1500
 			result_radius_local=result_radius
 			alpha=90
+			*/
 		}
 	}
 
