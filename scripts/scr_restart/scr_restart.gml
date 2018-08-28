@@ -80,7 +80,7 @@ if(result.rotation_start>180){
 	var sprite_id_loc=""
 			
 	var result_row=int64(result_previous.sector_id)	
-	sprite_index=asset_get_index(global.DB[# result_row,0]);  
+	result_previous.sprite_index=asset_get_index(global.DB[# result_row,0]);  
 	for(var pool=3;pool<43;pool+=4){		
 		if(global.DB[# result_row,pool]!=0){				
 			object_loc=asset_get_index(global.DB[# result_row,pool]) // берем наименование объекта
@@ -111,7 +111,12 @@ if(result.rotation_start>180){
 		depth=depth-10
 	}	
 	
-		var j=9;
+	// для previous result
+	result_post_previous.sector_id=42
+	var result_row=int64(result_post_previous.sector_id)	
+	result_post_previous.sprite_index=asset_get_index(global.DB[# result_row,0]);  
+	/*
+	var j=9;
 	var object_loc=noone
 	var alpha_loc=0
 	var height_radius_loc=0
@@ -149,7 +154,7 @@ if(result.rotation_start>180){
 		depth=depth-10
 	}	
 	
-	
+	*/
 	global.string_end= scr_random_range(global.DB[# int64(result_after.sector_id),2])	// выбираем вид сектора из допустимых для следующего прохода
 	scr_shift(-1,result)
 }else{	
@@ -157,20 +162,19 @@ if(result.rotation_start>180){
 		show_debug_message("<90")
 		//удаление всех объектов в районе следующего сектора
 		with(obj_solid){
-			
-			if(alpha<=result_after.rotation_start+360&&alpha>result_after.rotation_start+270){
-				instance_destroy()
-			}
+				if(alpha<=result_after.rotation_start&&alpha>result_after.rotation_start-90){
+					instance_destroy()
+				}
 		}
 		with(obj_enemy){
 			if(type_obj!="bullet"&&type_obj!="obj_meteor"){		
-				if(alpha<=result_after.rotation_start+360&&alpha>result_after.rotation_start+270){
+				if(alpha<=result_after.rotation_start&&alpha>result_after.rotation_start-90){
 					instance_destroy()
 				}
 			}
 		}
 		with(obj_solid_fall){
-			if(alpha<=result_after.rotation_start+360&&alpha>result_after.rotation_start+270){
+			if(alpha<=result_after.rotation_start&&alpha>result_after.rotation_start-90){
 				instance_destroy()
 			}
 		}	
@@ -181,23 +185,43 @@ if(result.rotation_start>180){
 	}else{
 			show_debug_message(">90")
 		with(obj_solid){
-			if(alpha<=result_post_previous.rotation_start+360&&alpha>result_post_previous.rotation_start+270){
-				instance_destroy()
-			}
+			if(alpha>=0){
+					if(alpha<=result_post_previous.rotation_start&&alpha>result_previous.rotation_start){
+						instance_destroy()
+					}
+				}else{
+					if(alpha<=result_post_previous.rotation_start-360&&alpha>result_previous.rotation_start-360){
+						instance_destroy()
+					}
+				}
 		}
 		with(obj_enemy){
 			if(type_obj!="bullet"&&type_obj!="obj_meteor"){		
-				if(alpha<=result_post_previous.rotation_start+360&&alpha>result_post_previous.rotation_start+270){
-					instance_destroy()
+				if(alpha>=0){
+					if(alpha<=result_post_previous.rotation_start&&alpha>result_previous.rotation_start){
+						instance_destroy()
+					}
+				}else{
+					if(alpha<=result_post_previous.rotation_start-360&&alpha>result_previous.rotation_start-360){
+						instance_destroy()
+					}
 				}
 			}
 		}
 		with(obj_solid_fall){
-			if(alpha<=result_post_previous.rotation_start+360&&alpha>result_post_previous.rotation_start+270){
-				instance_destroy()
-			}
+			if(alpha>=0){
+					if(alpha<=result_post_previous.rotation_start&&alpha>result_previous.rotation_start){
+						instance_destroy()
+					}
+				}else{
+					if(alpha<=result_post_previous.rotation_start-360&&alpha>result_previous.rotation_start-360){
+						instance_destroy()
+					}
+				}
 		}			
-		
+		result_post_previous.sector_id=42
+		var result_row=int64(result_post_previous.sector_id)	
+		result_post_previous.sprite_index=asset_get_index(global.DB[# result_row,0]);  
 		global.string_end= scr_random_range(global.DB[# int64(result_after.sector_id),2])	// выбираем вид сектора из допустимых для следующего прохода
 		scr_shift(-1,result)
 		

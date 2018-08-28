@@ -3,7 +3,7 @@
 global.radius_=825;
 global.x_=room_width/2;
 global.y_=room_height+415;
-//global.y_=room_height-3*415;
+//global.y_=room_height-2.5*415;
 global.speed_=0.3;
 global.max_speed_=0.3;
 global.save_speed_=0;
@@ -26,9 +26,24 @@ global.first_after_shift=false
 global.test_instance_prev=noone
 global.test_instance_post=noone
 global.testing_solid=0
+/*
+var w = window_get_width() / 3; 
+var h = window_get_height() / 3;
 
+display_set_gui_size(w, h);
+
+var cam = view_get_camera(0);
+
+view_set_wport(0, w); view_set_hport(0, h);
+
+camera_set_view_size(cam, view_wport[0], view_hport[0]);
+
+//camera_set_view_target(view_camera[0], player_obj); 
+//camera_set_view_border(view_camera[0], w/2, h/2);
+
+surface_resize(application_surface, w, h);
 //global.string_write=""
-
+*/
 
 //var DB=ds_grid_create(10,10)
 instance_create_layer(global.x_,global.y_-global.radius_-150,"Instances",obj_pl);

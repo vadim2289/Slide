@@ -5,7 +5,7 @@ draw_set_color(c_white)
 draw_text(100,100,fps)
 //draw_text(100,200,sector_r.rotation_start)
 //draw_text(room_width/2,100,score)
-/*
+
 draw_text(room_width/2-50,200,""+string(global.testing))
 
 draw_text(room_width/2-10,250,"sector_r rotation: "+string(sector_r.rotation_start))
@@ -22,7 +22,7 @@ if(instance_exists(global.test_instance_post)){
 
 
 draw_text(room_width/2-10,450,"solid_alpha_in_sector: "+string(global.testing_solid))
-*/
+
 
 
 draw_set_font(font_sector)

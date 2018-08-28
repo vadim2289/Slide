@@ -28,23 +28,25 @@ if(!global.pause){
 	var y_future_1=global.y_+lengthdir_y(result_radius+sign(vertical_speed),alpha);
 	var result_radius_local=result_radius
 
-	if(x_future<0){
-		scr_restart()
-			gravity_=0
-			super_power=true
-			alarm[0]=20
-			result_radius=1500
-			result_radius_local=result_radius
-			alpha=90
+	if(x_future<-10){
+		global.pause=true
+					super_power=true
+					result_radius=1500
+					scr_restart()
+					gravity_=0
+					result_radius_local=result_radius
+					alpha=90
+					alarm[0]=20
 	}
-	if(y_future>room_height){
-		scr_restart()
-			gravity_=0
-			super_power=true
-			alarm[0]=20
-			result_radius=1500
-			result_radius_local=result_radius
-			alpha=90
+	if(y_future>room_height+10){
+			global.pause=true
+					super_power=true
+					result_radius=1500
+					scr_restart()
+					gravity_=0
+					result_radius_local=result_radius
+					alpha=90
+					alarm[0]=20
 	}
 	if(place_meeting(x_future,y_future,obj_enemy)){
 		var inst= instance_place(x_future,y_future,obj_enemy)
@@ -95,7 +97,7 @@ if(!global.pause){
 			if(abs(result_radius-result_radius_local)>dopusk){// если игрок проваливается в солид больше чем на 20 пикселей, то конец, если меньше, то нор, встает наверх
 				//game_restart()
 				if(!super_power){
-					var inst= instance_place(global.x_+lengthdir_x(result_radius_local+sign(vertical_speed),alpha),global.y_+lengthdir_y(result_radius_local+sign(vertical_speed),alpha),obj_eath)
+					//var inst= instance_place(global.x_+lengthdir_x(result_radius_local+sign(vertical_speed),alpha),global.y_+lengthdir_y(result_radius_local+sign(vertical_speed),alpha),obj_eath)
 					//global.testing_solid=inst.alpha
 					global.pause=true
 					super_power=true
@@ -107,7 +109,7 @@ if(!global.pause){
 					alarm[0]=20
 					
 					
-					var inst= instance_place(global.x_+lengthdir_x(result_radius_local+sign(vertical_speed),alpha),global.y_+lengthdir_y(result_radius_local+sign(vertical_speed),alpha),obj_eath)
+					//var inst= instance_place(global.x_+lengthdir_x(result_radius_local+sign(vertical_speed),alpha),global.y_+lengthdir_y(result_radius_local+sign(vertical_speed),alpha),obj_eath)
 					//global.testing_solid=inst
 					
 					break; // остновка while после рестарта, чтобы не считал до конца	
