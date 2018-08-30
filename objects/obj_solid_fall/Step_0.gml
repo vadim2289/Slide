@@ -5,16 +5,19 @@ if(!global.first_after_shift){
 	alpha+=global.speed_+speed_	
 }
 if(global.first_after_shift){
-	object_set_visible(self,true)
+	
+	instance_activate_all()
 	sprite_index=spr_solid_fall
 	image_index=0
 	image_speed=0
 	alarm[0]=-1
-	
+	fall_=false
+	visible=true
+	//mask_index=spr_solid_fall
 }
 	image_angle=alpha-90
 	start_alpha=image_angle+90
-if(visible){
+
 	if(fall_){
 		alarm[0]=time_
 		fall_=false
@@ -39,10 +42,10 @@ if(visible){
 		image_index=4
 		image_speed=0
 	}
-}
+
 	if(alpha>=360){
 		alpha-=360
-	}else if(alpha<-90){
+	}else if(alpha<-90&&global.shift>0){
 		alpha+=360
 	}
 

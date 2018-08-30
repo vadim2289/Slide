@@ -21,7 +21,7 @@ global.last_sector=1
 global.shift=0
 global.shift_count=0
 global.first_after_shift=false
-
+global.score_=0
 
 global.test_instance_prev=noone
 global.test_instance_post=noone

@@ -18,6 +18,9 @@ if(loot=="good"){
 				obj_ufo.alarm[0]=5
 				count_stop=5
 				bad_active=0
+			}else{
+				alarm[1]=random_range(400,700)
+				bad_active=0.5
 			}
 		}
 }

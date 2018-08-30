@@ -18,7 +18,7 @@ if(alarm_true&&image_index > image_number-1){
 }	
 	if(alpha>=360){
 		alpha-=360
-	}else if(alpha<-90){
+	}else if(alpha<-90&&global.shift>0){
 		alpha+=360
 	}
 

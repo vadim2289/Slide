@@ -84,25 +84,26 @@ if(result.rotation_start>180){
 	for(var pool=3;pool<43;pool+=4){		
 		if(global.DB[# result_row,pool]!=0){				
 			object_loc=asset_get_index(global.DB[# result_row,pool]) // берем наименование объекта
+			if(object_loc!=obj_move_enemy){
+				//object_loc=obj_solid
 			
-			//object_loc=obj_solid
+				alpha_loc=global.DB[# result_row,pool+1]-90+result_previous.rotation_start // берем угол (то есть позицию объекта)
+				height_radius_loc=global.DB[# result_row,pool+2] //берем высоту объекта
+				sprite_id_loc=asset_get_index(global.DB[# result_row,pool+3])	 // берем название спрайта		
 			
-			alpha_loc=global.DB[# result_row,pool+1]-90+result_previous.rotation_start // берем угол (то есть позицию объекта)
-			height_radius_loc=global.DB[# result_row,pool+2] //берем высоту объекта
-			sprite_id_loc=asset_get_index(global.DB[# result_row,pool+3])	 // берем название спрайта		
+				//sprite_id_loc=spr_solid3_5		
 			
-			//sprite_id_loc=spr_solid3_5		
-			
-			result_previous.new_solid=instance_create_layer(global.x_+lengthdir_x(global.radius_+height_radius_loc,alpha_loc),
-				global.y_+lengthdir_y(global.radius_+height_radius_loc,alpha_loc),"Instances",
-				object_loc);  // создаем экземпляр объекта по взятым параметрам
-			result_previous.new_solid.sprite_index=sprite_id_loc // назначаем ему спрайт
-			result_previous.new_solid.alpha=alpha_loc //  назначаем ему угол
-			result_previous.new_solid.height_radius=height_radius_loc // назначаем ему высоту
-			result_previous.new_solid.start_alpha=alpha_loc //  назначаем ему стартовый угол
-			result_previous.new_solid.image_angle=alpha_loc-90 //  поворачиваем его спрайт по углу
-			show_debug_message(" inatsnace_create_previous "+string(result_previous.new_solid.alpha))
-			global.test_instance_prev=result_previous.new_solid
+				result_previous.new_solid=instance_create_layer(global.x_+lengthdir_x(global.radius_+height_radius_loc,alpha_loc),
+					global.y_+lengthdir_y(global.radius_+height_radius_loc,alpha_loc),"Instances",
+					object_loc);  // создаем экземпляр объекта по взятым параметрам
+				result_previous.new_solid.sprite_index=sprite_id_loc // назначаем ему спрайт
+				result_previous.new_solid.alpha=alpha_loc //  назначаем ему угол
+				result_previous.new_solid.height_radius=height_radius_loc // назначаем ему высоту
+				result_previous.new_solid.start_alpha=alpha_loc //  назначаем ему стартовый угол
+				result_previous.new_solid.image_angle=alpha_loc-90 //  поворачиваем его спрайт по углу
+				show_debug_message(" inatsnace_create_previous "+string(result_previous.new_solid.alpha))
+				global.test_instance_prev=result_previous.new_solid
+			}
 			
 		}
 		j--

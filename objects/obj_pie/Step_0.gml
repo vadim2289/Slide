@@ -8,7 +8,7 @@ if(!global.first_after_shift){
 //alpha_grad=radtodeg(alpha)
 	if(alpha>=360){
 		alpha-=360
-	}else if(alpha<-90){
+	}else if(alpha<-90&&global.shift>0){
 		alpha+=360
 	}
 if(alpha>=270){

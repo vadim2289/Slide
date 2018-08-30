@@ -5,6 +5,7 @@
 //global.speed_=lerp(global.speed_,0.0,0.0025)
 
 
+
 // при взятии лута разгон и замедление мира
 if(!global.pause){
 	if(obj_pl.bad_active>0){
@@ -35,11 +36,17 @@ if(!global.pause_game){
 			}
 			if(global.shift_count-global.speed_*sign(global.speed_)<0){		
 					global.speed_=sign(global.speed_)*global.shift_count	
+					//global.score_-=global.speed_
 			}
 		}else{
-			
+			global.score_-=0.3
 			global.shift=0
 			alarm[0]=50		
 		}
 	}
 }
+global.score_+=global.speed_
+
+
+
+
