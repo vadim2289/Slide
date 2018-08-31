@@ -70,6 +70,7 @@ if(!global.pause){
 		else if(super_power==false){	
 			
 			global.pause=true	
+			bad_active=-1
 			scr_restart()
 			gravity_=0
 			super_power=true
@@ -110,6 +111,7 @@ if(!global.pause){
 						global.pause=true
 						super_power=true
 						result_radius=1500
+						bad_active=-1
 						scr_restart()
 						gravity_=0
 						result_radius_local=result_radius

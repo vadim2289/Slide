@@ -157,6 +157,8 @@ if(result.rotation_start>180){
 	
 	*/
 	global.string_end= scr_random_range(global.DB[# int64(result_after.sector_id),2])	// выбираем вид сектора из допустимых для следующего прохода
+	show_debug_message("!!!! updateing "+string(result_post_previous.sector_updating))
+	result_post_previous.sector_updating=false
 	scr_shift(-1,result)
 }else{	
 	if(result.rotation_start<90){
@@ -223,7 +225,10 @@ if(result.rotation_start>180){
 		result_post_previous.sector_id=42
 		var result_row=int64(result_post_previous.sector_id)	
 		result_post_previous.sprite_index=asset_get_index(global.DB[# result_row,0]);  
-		global.string_end= scr_random_range(global.DB[# int64(result_after.sector_id),2])	// выбираем вид сектора из допустимых для следующего прохода
+		global.string_end= scr_random_range(global.DB[# int64(result_after.sector_id),2])// выбираем вид сектора из допустимых для следующего прохода
+		global.testing=result_post_previous.rotation_start
+		show_debug_message("!!!! updateing "+string(result_post_previous.sector_updating))
+		result_post_previous.sector_updating=false
 		scr_shift(-1,result)
 		
 	}

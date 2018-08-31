@@ -15,11 +15,11 @@ if(!global.pause){
 		if(global.speed_==0.3){
 			obj_pl.bad_active=0
 			obj_pl.super_power=false
-			global.testing=""
+			//global.testing=""
 		}
+		
 	}
-}else{
-	//global.speed_=0
+	
 }
 
 
@@ -44,6 +44,7 @@ if(!global.pause_game){
 			alarm[0]=50		
 		}
 	}
+
 }
 global.score_+=global.speed_
 

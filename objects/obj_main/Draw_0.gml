@@ -6,7 +6,7 @@ draw_text(100,100,fps)
 //draw_text(100,200,sector_r.rotation_start)
 //draw_text(room_width/2,100,score)
 
-draw_text(room_width/2-50,200,""+string(global.testing))
+draw_text(room_width/2-50,200,"test : "+string(global.testing))
 
 draw_text(room_width/2-10,250,"score: "+string(global.score_))
 /*
@@ -22,7 +22,7 @@ if(instance_exists(global.test_instance_post)){
 }*/
 
 
-//draw_text(room_width/2-10,450,"solid_alpha_in_sector: "+string(global.testing_solid))
+draw_text(room_width/2-10,450,"string: "+string(global.string_end))
 
 
 

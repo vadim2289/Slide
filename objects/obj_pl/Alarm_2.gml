@@ -3,12 +3,13 @@
 global.speed_=global.max_speed_
 if(loot=="good"){
 		super_power=true	
-		global.testing="goood"
+		//global.testing="goood"
 		alarm[1]=random_range(400,700)
 		bad_active=0.8
+		global.score_-=0.3
 }else if(loot=="bad"){
 		super_power=false	
-		global.testing="baaaad"
+		//global.testing="baaaad"
 		var ran=round(irandom(2))
 		if(ran==2){
 			alarm[1]=random_range(400,700)
@@ -23,5 +24,6 @@ if(loot=="good"){
 				bad_active=0.5
 			}
 		}
+		global.score_-=0.3
 }
 global.pause=false
