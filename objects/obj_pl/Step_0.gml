@@ -11,11 +11,11 @@ if(!global.pause){
 	if(key_horizon>0){
 		horizontal_speed-=acceleration_	
 		horizontal_speed=clamp(horizontal_speed,0,-speed_);	
-		image_speed=2	
+		image_speed=1	
 	}else if(key_horizon<0){
 		horizontal_speed+=acceleration_
 		horizontal_speed=clamp(abs(horizontal_speed),0,speed_*1.5);
-		image_speed=0
+		image_speed=1
 	}else{
 		horizontal_speed=lerp(horizontal_speed,0,acceleration_*1.5)
 		image_speed=1
@@ -89,8 +89,7 @@ if(!global.pause){
 
 	if(place_meeting(x_future,y_future,obj_eath)){
 		var inst= instance_place(x_future,y_future,obj_eath)
-		if(inst.visible){
-		
+		if(inst.visible){		
 			AI="on_eath"
 			//Доводим персонаж плавно с шагом +1 или -1 до момента соприкосновения с объектом.	
 			while !place_meeting(x_future_1,y_future_1,obj_eath){	
@@ -161,21 +160,27 @@ if(!global.pause){
 		}
 
 	}else{
-		AI="jamp"	
+		AI="jump"		
 	}
-	if(button_down>0){
-		sprite_index=spr_pld
+	
+	if(button_down>0){		
+		sprite_index=spr_down
 		image_angle=alpha-90
+		
 	}else {
-		sprite_index=spr_pl
-		image_angle=alpha-90
-	}
-	if(button_key){
+		if(AI="jump"){
+			sprite_index=spr_jump
+			image_angle=alpha-90
+			
 		//show_debug_message(AI)
 		//show_debug_message(vertical_speed)
+		}else{
+			sprite_index=spr_player
+			image_angle=alpha-90
+		}
+	
 	}
-
-	if(button_key>0&&AI="on_eath"){		
+	if(button_key>0){		// прыжок
 		vertical_speed=button_key*jump_
 	}
 

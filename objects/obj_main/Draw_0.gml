@@ -22,7 +22,8 @@ if(instance_exists(global.test_instance_post)){
 }*/
 
 
-draw_text(room_width/2-10,450,"string: "+string(global.string_end))
+//draw_text(room_width/2-10,450,"string: "+string(global.string_end))
+draw_text(room_width/2-10,450,"string: "+string(int64(obj_pl.image_index)))
 
 
 
