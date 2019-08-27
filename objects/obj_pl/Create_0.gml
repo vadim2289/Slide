@@ -1,6 +1,6 @@
 /// @description Insert description here
 // You can write your code in this editor
-button_key=0;
+button_up=0;
 button_down=0;
 key_horizon=0;
 gravity_=0.5;

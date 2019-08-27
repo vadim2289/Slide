@@ -2,7 +2,7 @@
 // You can write your code in this editor
 
 if(!global.pause){
-	button_key=keyboard_check_pressed(vk_up)
+	button_up=keyboard_check_pressed(vk_up)
 	button_down=keyboard_check(vk_down);
 	key_horizon=keyboard_check(vk_right)-keyboard_check(vk_left);
 	
@@ -89,8 +89,11 @@ if(!global.pause){
 
 	if(place_meeting(x_future,y_future,obj_eath)){
 		var inst= instance_place(x_future,y_future,obj_eath)
-		if(inst.visible){		
-			AI="on_eath"
+		if(inst.visible){	
+			if(AI!="on_eath"){
+				AI="on_landing"
+				
+			}
 			//Доводим персонаж плавно с шагом +1 или -1 до момента соприкосновения с объектом.	
 			while !place_meeting(x_future_1,y_future_1,obj_eath){	
 				result_radius=result_radius_local
@@ -98,7 +101,7 @@ if(!global.pause){
 				x_future_1=global.x_+lengthdir_x(result_radius_local,alpha); 
 				y_future_1=global.y_+lengthdir_y(result_radius_local,alpha);			
 			}	
-			//Проверка коллизий при погружении в объект более чем на 16 пикселей - рестарт	
+			//Проверка коллизий при погружении в объект более чем на 20 пикселей - рестарт	
 			while place_meeting(global.x_+lengthdir_x(result_radius_local+sign(vertical_speed),alpha),global.y_+lengthdir_y(result_radius_local+sign(vertical_speed),alpha),obj_eath){		
 				result_radius_local+=1	
 				//show_debug_message("while place_meeting_"+string(result_radius_local)+" dopusk "+string(abs(result_radius-result_radius_local)))
@@ -109,17 +112,11 @@ if(!global.pause){
 						//global.testing_solid=inst.alpha
 						global.pause=true
 						super_power=true
-						result_radius=1500
+						//result_radius=1500
 						bad_active=-1
-						scr_restart()
-						gravity_=0
-						result_radius_local=result_radius
-						alpha=90
-						alarm[0]=20
-						result_radius+=vertical_speed;
-						//show_debug_message("solid_fall"+string(result_radius))
-						x=global.x_+lengthdir_x(result_radius,alpha); 
-						y=global.y_+lengthdir_y(result_radius,alpha);
+						scr_restart()				
+						//result_radius_local=result_radius
+						
 						exit;
 					
 						//var inst= instance_place(global.x_+lengthdir_x(result_radius_local+sign(vertical_speed),alpha),global.y_+lengthdir_y(result_radius_local+sign(vertical_speed),alpha),obj_eath)
@@ -160,28 +157,43 @@ if(!global.pause){
 		}
 
 	}else{
-		AI="jump"		
+		AI="on_air"	
+		sprite_index=spr_jump
+		image_angle=alpha-90
 	}
 	
-	if(button_down>0){		
-		sprite_index=spr_down
+	if(AI=="on_landing"){
+		show_debug_message("start "+string(image_index))
+		sprite_index=spr_landing;
 		image_angle=alpha-90
+		var index_image=image_index;
 		
-	}else {
-		if(AI="jump"){
-			sprite_index=spr_jump
+		if(button_down>0){		
+			sprite_index=spr_down_landing
+			image_angle=alpha-90	
+			image_index=index_image
+			show_debug_message("mem"+string(index_image)+" cadr"+string(image_index))
+		//	image_speed=1
+		}
+		if(key_horizon!=0){				
+			sprite_index=spr_right_landing
 			image_angle=alpha-90
-			
-		//show_debug_message(AI)
-		//show_debug_message(vertical_speed)
-		}else{
+			image_index=index_image		
+			show_debug_message("mem"+string(index_image)+" cadr"+string(image_index))
+		//	image_speed=1
+		}
+	}else{
+		if(button_down>0){		
+			sprite_index=spr_down
+			image_angle=alpha-90		
+		}else if(AI!="on_air"){				
 			sprite_index=spr_player
 			image_angle=alpha-90
 		}
+	}	
 	
-	}
-	if(button_key>0){		// прыжок
-		vertical_speed=button_key*jump_
+	if(button_up>0&&AI!="on_air"){		// прыжок
+		vertical_speed=button_up*jump_
 	}
 
 

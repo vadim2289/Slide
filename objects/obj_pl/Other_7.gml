@@ -3,7 +3,14 @@
 
 
 //
-if(sprite_index==spr_down){
+if(AI=="on_landing"){
+	AI="on_eath"
+	show_debug_message("!!!!!!!!!!!!!on eath")
+	image_index=0
+}
+
+
+/*if(sprite_index==spr_down){
 	image_index=0		
 }
 if(sprite_index==spr_jump){
@@ -11,4 +18,4 @@ if(sprite_index==spr_jump){
 }
 if(sprite_index==spr_player){
 	image_index=0		
-}
+}*/
