@@ -2,7 +2,7 @@
 // You can write your code in this editor
 global.pause=false
 global.speed_=global.max_speed_
-
+/*
 for (var i = 0; i  < 400 ; i += 100)
 {
 	var result_=770-i
@@ -20,3 +20,4 @@ obj_pl.result_radius+=obj_pl.vertical_speed;
 obj_pl.x=global.x_+lengthdir_x(obj_pl.result_radius,obj_pl.alpha); 
 obj_pl.y=global.y_+lengthdir_y(obj_pl.result_radius,obj_pl.alpha);
 obj_pl.alarm[0]=20
+*/

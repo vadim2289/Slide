@@ -90,9 +90,10 @@ if(!global.pause){
 	if(place_meeting(x_future,y_future,obj_eath)){
 		var inst= instance_place(x_future,y_future,obj_eath)
 		if(inst.visible){	
-			if(AI!="on_eath"){
-				AI="on_landing"
-				
+			if(AI=="on_air"){
+				AI="on_landing"	
+				image_index=0;
+				show_debug_message("on_landing_from_air "+string(image_index))
 			}
 			//Доводим персонаж плавно с шагом +1 или -1 до момента соприкосновения с объектом.	
 			while !place_meeting(x_future_1,y_future_1,obj_eath){	
@@ -112,7 +113,7 @@ if(!global.pause){
 						//global.testing_solid=inst.alpha
 						global.pause=true
 						super_power=true
-						//result_radius=1500
+						result_radius=1500
 						bad_active=-1
 						scr_restart()				
 						//result_radius_local=result_radius
@@ -160,33 +161,47 @@ if(!global.pause){
 		AI="on_air"	
 		sprite_index=spr_jump
 		image_angle=alpha-90
+		show_debug_message("on_air_on! "+string(image_index))
 	}
 	
+	// animation
+	
 	if(AI=="on_landing"){
+		//image_index=0
 		show_debug_message("start "+string(image_index))
 		sprite_index=spr_landing;
 		image_angle=alpha-90
 		var index_image=image_index;
 		
-		if(button_down>0){		
+		if(button_down>0){	
+			AI="on_move_landing"
 			sprite_index=spr_down_landing
 			image_angle=alpha-90	
 			image_index=index_image
-			show_debug_message("mem"+string(index_image)+" cadr"+string(image_index))
+			show_debug_message("VNIZ "+" cadr"+string(image_index))
 		//	image_speed=1
 		}
-		if(key_horizon!=0){				
+		if(key_horizon!=0){		
+			AI="on_move_landing"
 			sprite_index=spr_right_landing
 			image_angle=alpha-90
 			image_index=index_image		
-			show_debug_message("mem"+string(index_image)+" cadr"+string(image_index))
+			show_debug_message("BOK "+" cadr"+string(image_index))
 		//	image_speed=1
 		}
-	}else{
+	}
+	if(AI=="on_eath"||AI=="on_move"){
 		if(button_down>0){		
+			AI="on_move"
 			sprite_index=spr_down
 			image_angle=alpha-90		
-		}else if(AI!="on_air"){				
+		}else if(key_horizon!=0){
+			AI="on_move"
+			sprite_index=spr_player
+			image_angle=alpha-90
+			show_debug_message("MOOOOOOVE "+" cadr"+string(image_index))
+		}else{
+			AI="on_eath"
 			sprite_index=spr_player
 			image_angle=alpha-90
 		}
