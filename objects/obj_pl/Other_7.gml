@@ -8,7 +8,7 @@ if(AI=="on_landing"){
 	show_debug_message("!!!!!!!!!!!!!on eath")
 	image_index=0
 }
-
+image_index=0
 
 /*if(sprite_index==spr_down){
 	image_index=0		
