@@ -7,7 +7,7 @@ if(AI=="on_landing"){
 }
 if(AI=="on_move_landing"){
 	AI="on_move"
-	show_debug_message("!!!!!!!!!!!!!on move")
+	show_debug_message("!!!!!!!!!!!!!on move"+string(result_radius))
 //	image_index=0
 }
 

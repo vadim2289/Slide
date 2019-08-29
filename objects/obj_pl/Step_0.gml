@@ -90,11 +90,7 @@ if(!global.pause){
 	if(place_meeting(x_future,y_future,obj_eath)){
 		var inst= instance_place(x_future,y_future,obj_eath)
 		if(inst.visible){	
-			if(AI=="on_air"){
-				AI="on_landing"	
-				image_index=0;
-				show_debug_message("on_landing_from_air "+string(image_index))
-			}
+			
 			//Доводим персонаж плавно с шагом +1 или -1 до момента соприкосновения с объектом.	
 			while !place_meeting(x_future_1,y_future_1,obj_eath){	
 				result_radius=result_radius_local
@@ -102,6 +98,7 @@ if(!global.pause){
 				x_future_1=global.x_+lengthdir_x(result_radius_local,alpha); 
 				y_future_1=global.y_+lengthdir_y(result_radius_local,alpha);			
 			}	
+			
 			//Проверка коллизий при погружении в объект более чем на 20 пикселей - рестарт	
 			while place_meeting(global.x_+lengthdir_x(result_radius_local+sign(vertical_speed),alpha),global.y_+lengthdir_y(result_radius_local+sign(vertical_speed),alpha),obj_eath){		
 				result_radius_local+=1	
@@ -113,13 +110,12 @@ if(!global.pause){
 						//global.testing_solid=inst.alpha
 						global.pause=true
 						super_power=true
-						result_radius=1500
+						//result_radius=1500
 						bad_active=-1
+						show_debug_message("dead radius "+string(result_radius))
 						scr_restart()				
 						//result_radius_local=result_radius
 						
-						exit;
-					
 						//var inst= instance_place(global.x_+lengthdir_x(result_radius_local+sign(vertical_speed),alpha),global.y_+lengthdir_y(result_radius_local+sign(vertical_speed),alpha),obj_eath)
 						//global.testing_solid=inst
 					
@@ -156,26 +152,29 @@ if(!global.pause){
 			}
 		
 		}
-
+		if(AI=="on_air"){
+			AI="on_landing"	
+			image_index=0;
+			show_debug_message("on_landing_from_air "+string(image_index))
+		}
 	}else{
-		AI="on_air"	
-		sprite_index=spr_jump
-		image_angle=alpha-90
-		show_debug_message("on_air_on! "+string(image_index))
+		AI="on_air"			
 	}
 	
 	// animation
 	
 	if(AI=="on_landing"){
 		//image_index=0
-		show_debug_message("start "+string(image_index))
+		//show_debug_message("start "+string(image_index))
 		sprite_index=spr_landing;
+		//sprite_index=spr_player;
 		image_angle=alpha-90
 		var index_image=image_index;
-		
+	//	AI="on_eath"
 		if(button_down>0){	
 			AI="on_move_landing"
 			sprite_index=spr_down_landing
+			//sprite_index=spr_down
 			image_angle=alpha-90	
 			image_index=index_image
 			show_debug_message("VNIZ "+" cadr"+string(image_index))
@@ -184,28 +183,47 @@ if(!global.pause){
 		if(key_horizon!=0){		
 			AI="on_move_landing"
 			sprite_index=spr_right_landing
+			//sprite_index=spr_down
 			image_angle=alpha-90
 			image_index=index_image		
-			show_debug_message("BOK "+" cadr"+string(image_index))
+			show_debug_message("BOK "+" cadr"+string(image_index)+string(result_radius))
+			//key_horizon=1
 		//	image_speed=1
 		}
-	}
-	if(AI=="on_eath"||AI=="on_move"){
-		if(button_down>0){		
-			AI="on_move"
-			sprite_index=spr_down
-			image_angle=alpha-90		
-		}else if(key_horizon!=0){
-			AI="on_move"
-			sprite_index=spr_player
-			image_angle=alpha-90
-			show_debug_message("MOOOOOOVE "+" cadr"+string(image_index))
-		}else{
-			AI="on_eath"
-			sprite_index=spr_player
+	}	
+	if(AI=="on_move_landing"){
+		if(button_down>0){	
+			AI="on_move_landing"
+			sprite_index=spr_down_landing
+			image_angle=alpha-90	
+		}else if(key_horizon!=0){		
+			AI="on_move_landing"
+			sprite_index=spr_right_landing
 			image_angle=alpha-90
 		}
-	}	
+	}else if(AI!="on_landing"){
+		if(button_down>0){		
+			//AI="on_move"
+			sprite_index=spr_down
+			image_angle=alpha-90		
+		}else{
+			if (AI="on_air"){
+				sprite_index=spr_jump
+				image_angle=alpha-90
+			}else{
+				if(key_horizon!=0){
+					AI="on_move"
+					sprite_index=spr_player
+					image_angle=alpha-90
+				}else{
+					AI="on_eath"
+					sprite_index=spr_player
+					image_angle=alpha-90
+				}
+			}	
+			
+		}
+	}
 	
 	if(button_up>0&&AI!="on_air"){		// прыжок
 		vertical_speed=button_up*jump_
