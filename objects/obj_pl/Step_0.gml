@@ -180,15 +180,14 @@ if(!global.pause){
 			show_debug_message("VNIZ "+" cadr"+string(image_index))
 		//	image_speed=1
 		}
-		if(key_horizon!=0){		
+		if(key_horizon>0){		
 			AI="on_move_landing"
-			sprite_index=spr_right_landing
-			//sprite_index=spr_down
+			sprite_index=spr_move_right_landing
 			image_angle=alpha-90
-			image_index=index_image		
-			show_debug_message("BOK "+" cadr"+string(image_index)+string(result_radius))
-			//key_horizon=1
-		//	image_speed=1
+		}else if(key_horizon<0){
+			AI="on_move_landing"
+			sprite_index=spr_move_back_landing
+			image_angle=alpha-90
 		}
 	}	
 	if(AI=="on_move_landing"){
@@ -196,9 +195,13 @@ if(!global.pause){
 			AI="on_move_landing"
 			sprite_index=spr_down_landing
 			image_angle=alpha-90	
-		}else if(key_horizon!=0){		
+		}else if(key_horizon>0){		
 			AI="on_move_landing"
-			sprite_index=spr_right_landing
+			sprite_index=spr_move_right_landing
+			image_angle=alpha-90
+		}else if(key_horizon<0){
+			AI="on_move_landing"
+			sprite_index=spr_move_back_landing
 			image_angle=alpha-90
 		}
 	}else if(AI!="on_landing"){
@@ -211,13 +214,17 @@ if(!global.pause){
 				sprite_index=spr_jump
 				image_angle=alpha-90
 			}else{
-				if(key_horizon!=0){
+				if(key_horizon>0){
 					AI="on_move"
-					sprite_index=spr_player
+					sprite_index=spr_move_right
 					image_angle=alpha-90
-				}else{
+				}else if(key_horizon<0){
+					AI="on_move"
+					sprite_index=spr_move_back
+					image_angle=alpha-90
+				}else{					
 					AI="on_eath"
-					sprite_index=spr_player
+					sprite_index=spr_stand
 					image_angle=alpha-90
 				}
 			}	

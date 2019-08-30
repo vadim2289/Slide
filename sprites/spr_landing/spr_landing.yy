@@ -6,7 +6,7 @@
     "For3D": false,
     "HTile": false,
     "VTile": false,
-    "bbox_bottom": 58,
+    "bbox_bottom": 55,
     "bbox_left": 0,
     "bbox_right": 63,
     "bbox_top": 4,
@@ -110,5 +110,5 @@
     "type": 0,
     "width": 64,
     "xorig": 32,
-    "yorig": 58
+    "yorig": 55
 }
