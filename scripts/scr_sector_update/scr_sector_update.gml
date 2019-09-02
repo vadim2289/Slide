@@ -13,19 +13,20 @@ if(global.string_end!="-1"){ // если не первый проход
 	//global.number_+=1
 	//result_row=global.number_
 	//if result_row>49{
-	//	result_row=0
+		result_row=0 // временно
 //		global.number_=0
 //	}
 	//result_row=round(random_range(197,198))
 	show_debug_message("CREATE!!!!!!!!!!! "+string(result_row))
 	global.string_end= scr_random_range(global.DB[# result_row,2])	// выбираем вид сектора из допустимых для следующего прохода
+	
 	//global.string_end=string(irandom_range(0,1))
-	//global.string_end= "0" // временно
+	global.string_end= "0" // временно
 	//global.testing=" string_end "+string(global.string_end)+" result_row "+string(result_row)
 	//global.testing=string(result_row)
 	
 	sprite_index=asset_get_index(global.DB[# result_row,0]);  // загружаем спрайт сектора
-	
+	depth=depth-10
 	//	sprite_index=asset_get_index("spr_circle_small"); // временно
 	
 	/*if(global.number_/2-round(global.number_/2)==0){

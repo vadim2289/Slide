@@ -51,6 +51,6 @@ if(!global.pause_game){
 }
 global.score_+=global.speed_
 
-
+obj_sprite.depth=obj_eath.depth-1
 
 
