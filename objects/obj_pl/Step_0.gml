@@ -222,6 +222,7 @@ if(!global.pause){
 		}else{
 			if (AI="on_air"){
 				sprite_index=spr_jump
+				
 				image_angle=alpha-90
 			}else{
 				if(key_horizon>0){
@@ -234,6 +235,7 @@ if(!global.pause){
 					image_angle=alpha-90
 				}else{					
 					AI="on_eath"
+					
 					sprite_index=spr_stand
 					image_angle=alpha-90
 				}
