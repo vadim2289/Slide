@@ -94,7 +94,7 @@ sector_d.sector_id=0
 //Test_sprite
 
 sector_r_sprite=instance_create_layer(global.x_,global.y_,"Instances",obj_sprite); // правая точка
-sector_r_sprite.sprite_index=sprite551
+//sector_r_sprite.sprite_index=sprite551
 sector_r_sprite.rotation_start=90;
 //sector_r_sprite.image_speed=1
 

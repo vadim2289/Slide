@@ -7,3 +7,4 @@ y=global.y_
 sector_updating=false;
 new_solid=noone
 sector_id=-1
+invisible=false;

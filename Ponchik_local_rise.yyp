@@ -303,6 +303,14 @@
             }
         },
         {
+            "Key": "496bc45f-3e13-4879-982d-5fce0dbb7372",
+            "Value": {
+                "id": "0302b899-6365-44c1-9a05-d6d018c1c0ce",
+                "resourcePath": "sprites\\spr_destroy\\spr_destroy.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "49aeb31f-bc20-4e8e-9007-79b35b316ce7",
             "Value": {
                 "id": "1f0cd967-51ac-44a6-92e6-54b3a1463bc6",

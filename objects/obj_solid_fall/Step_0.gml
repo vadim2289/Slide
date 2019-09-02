@@ -12,7 +12,7 @@ if(global.first_after_shift){
 	image_speed=0
 	alarm[0]=-1
 	fall_=false
-	visible=true
+	invisible=false
 	//mask_index=spr_solid_fall
 }
 	image_angle=alpha-90

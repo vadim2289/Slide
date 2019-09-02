@@ -4,6 +4,5 @@ start_alpha=0;
 alpha=0;
 height_radius=-50;
 new_solid=noone
-
-
 status_=true
+invisible=false;
