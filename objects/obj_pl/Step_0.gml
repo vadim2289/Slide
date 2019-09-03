@@ -29,12 +29,9 @@ if(!global.pause){
 	var result_radius_local=result_radius
 
 	if(x_future<-10){
-		global.pause=true
-			
-					super_power=true
-					sprite_index=spr_destroy
+				
 					AI="on_destroy"
-					scr_restart()
+				
 					
 					/*gravity_=0
 					result_radius_local=result_radius
@@ -42,11 +39,7 @@ if(!global.pause){
 					alarm[0]=20*/
 	}
 	if(y_future>room_height+10){
-			global.pause=true
-					super_power=true
-					sprite_index=spr_destroy
-					AI="on_destroy"
-					scr_restart()
+						AI="on_destroy"
 					/*gravity_=0
 					result_radius_local=result_radius
 					alpha=90
@@ -71,14 +64,11 @@ if(!global.pause){
 			//bad_active=inst.speed_
 			instance_destroy(inst)
 		}
-		else if(super_power==false){	
-			
-			global.pause=true	
+		else if(super_power==false){				
 			bad_active=-1
-			super_power=true
-			sprite_index=spr_destroy
+			
 			AI="on_destroy"
-			scr_restart()
+			
 			/*gravity_=0
 			super_power=true
 			alarm[0]=20
@@ -115,15 +105,12 @@ if(!global.pause){
 					if(!super_power){
 						//var inst= instance_place(global.x_+lengthdir_x(result_radius_local+sign(vertical_speed),alpha),global.y_+lengthdir_y(result_radius_local+sign(vertical_speed),alpha),obj_eath)
 						//global.testing_solid=inst.alpha
-						global.pause=true
-						super_power=true
+					
 						//result_radius=1500
 						bad_active=-1
-						show_debug_message("dead radius "+string(result_radius))
-						sprite_index=spr_destroy
-						AI="on_destroy"
+					
+						AI="on_destroy"						
 						
-						scr_restart()				
 						//result_radius_local=result_radius
 						
 						//var inst= instance_place(global.x_+lengthdir_x(result_radius_local+sign(vertical_speed),alpha),global.y_+lengthdir_y(result_radius_local+sign(vertical_speed),alpha),obj_eath)
@@ -165,13 +152,21 @@ if(!global.pause){
 		if(AI=="on_air"){
 			AI="on_landing"	
 			image_index=0;
-			show_debug_message("on_landing_from_air "+string(image_index))
+			//show_debug_message("on_landing_from_air "+string(image_index))
 		}
 	}else{
 		AI="on_air"			
 	}
 	
 	// animation
+	
+	if(AI=="on_destroy"){
+					global.pause=true
+					super_power=true
+					sprite_index=spr_destroy
+					image_index=0;
+					scr_restart()
+	}
 	
 	if(AI=="on_landing"){
 		//image_index=0
@@ -187,7 +182,7 @@ if(!global.pause){
 			//sprite_index=spr_down
 			image_angle=alpha-90	
 			image_index=index_image
-			show_debug_message("VNIZ "+" cadr"+string(image_index))
+			//show_debug_message("VNIZ "+" cadr"+string(image_index))
 		//	image_speed=1
 		}
 		if(key_horizon>0){		

@@ -71,7 +71,7 @@ if(global.string_end!="-1"){ // если не первый проход
 			
 }else{ // если первый проход в самом начале игры
 	//global.string_end="0";
-	var result_row=0 // 0 для первого прохода
+	var result_row=2 // 0 для первого прохода
 	//var result_row=irandom_range(5,9)
 	global.string_end= scr_random_range(global.DB[# result_row,2])	 // выбираем вид сектора из допустимых для следующего прохода
 	//global.testing=" string_end "+string(global.string_end)+" result_row "+string(result_row)
@@ -116,7 +116,7 @@ if(global.string_end!="-1"){ // если не первый проход
 		}
 		j--
 	}
-	global.string_end="0"  // временно
+	//global.string_end="0"  // временно
 }
 
 with (obj_enemy){	
