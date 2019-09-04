@@ -1,4 +1,4 @@
-/// @description Pause when bad or good start
+/// @description Pause when loot start
 // You can write your code in this editor
 global.speed_=global.max_speed_
 if(loot=="good"){

@@ -28,18 +28,19 @@ if(!global.pause){
 	var y_future_1=global.y_+lengthdir_y(result_radius+sign(vertical_speed),alpha);
 	var result_radius_local=result_radius
 
-	if(x_future<-10){
-				
-					AI="on_destroy"
-				
-					
+	if(x_future<-10){		
+					global.pause=true
+					global.speed_=0;
+					AI="on_destroy"					
 					/*gravity_=0
 					result_radius_local=result_radius
 					alpha=90
 					alarm[0]=20*/
 	}
 	if(y_future>room_height+10){
-						AI="on_destroy"
+					global.pause=true
+					global.speed_=0;
+					AI="on_destroy"	
 					/*gravity_=0
 					result_radius_local=result_radius
 					alpha=90
@@ -52,6 +53,7 @@ if(!global.pause){
 			global.speed_=0;
 			alarm[2]=50 // задержка перед активацией лута
 			loot="good"
+			
 			//alarm[1]=inst.time
 			instance_destroy(inst)		
 		}else if(inst.type_obj=="obj_bad"){
@@ -66,8 +68,10 @@ if(!global.pause){
 		}
 		else if(super_power==false){				
 			bad_active=-1
+			//global.pause=true
+			//global.speed_=0;
+			AI="on_destroy"	
 			
-			AI="on_destroy"
 			
 			/*gravity_=0
 			super_power=true
@@ -104,22 +108,19 @@ if(!global.pause){
 					//game_restart()
 					if(!super_power){
 						//var inst= instance_place(global.x_+lengthdir_x(result_radius_local+sign(vertical_speed),alpha),global.y_+lengthdir_y(result_radius_local+sign(vertical_speed),alpha),obj_eath)
-						//global.testing_solid=inst.alpha
-					
+						//global.testing_solid=inst.alpha					
 						//result_radius=1500
-						bad_active=-1
-					
-						AI="on_destroy"						
-						
-						//result_radius_local=result_radius
-						
+						bad_active=-1					
+						global.pause=true
+						global.speed_=0;
+						AI="on_destroy"	
+						scr_restart()
+						//result_radius_local=result_radius						
 						//var inst= instance_place(global.x_+lengthdir_x(result_radius_local+sign(vertical_speed),alpha),global.y_+lengthdir_y(result_radius_local+sign(vertical_speed),alpha),obj_eath)
-						//global.testing_solid=inst
-					
-						break; // остновка while после рестарта, чтобы не считал до конца	
-					
+						//global.testing_solid=inst					
+						break; // остновка while после рестарта, чтобы не считал до конца						
 					}
-					break; // остновка while после рестарта, чтобы не считал до конца			
+					break; // остновка while после рестарта, чтобы не считал до конца	
 				}
 			}	
 			vertical_speed=0;// обнуление вертикальной скорости здесь, чтобы работала проверка на  погружение в спрайт выше	
@@ -163,9 +164,11 @@ if(!global.pause){
 	if(AI=="on_destroy"){
 					global.pause=true
 					super_power=true
+					global.speed_=0;
 					sprite_index=spr_destroy
-					image_index=0;
-					scr_restart()
+				//	scr_restart()
+					//image_index=0;
+					//scr_restart()
 	}
 	
 	if(AI=="on_landing"){
@@ -209,7 +212,7 @@ if(!global.pause){
 			sprite_index=spr_move_back_landing
 			image_angle=alpha-90
 		}
-	}else if(AI!="on_landing"){
+	}else if(AI!="on_landing"&&AI!="on_destroy"){
 		if(button_down>0){		
 			//AI="on_move"
 			sprite_index=spr_down

@@ -10,7 +10,11 @@ if(AI=="on_move_landing"){
 	show_debug_message("!!!!!!!!!!!!!on move"+string(result_radius))
 //	image_index=0
 }
-
+/*
+if(AI=="on_destroy"){
+	AI="on_air"
+	scr_restart()
+}*/
 /*if(sprite_index==spr_down){
 	image_index=0		
 }
