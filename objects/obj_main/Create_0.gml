@@ -126,7 +126,14 @@ sector_d_sprite.rotation_start=0;
 //sector_d_sprite.sector_id=0
 
 
-
+view_=instance_create_layer(global.x_,global.y_,"Instances",obj_view); // нижняя точка
+view_.alpha=0
+view_2=instance_create_layer(global.x_,global.y_,"Instances",obj_view); 
+view_2.alpha=9
+view_3=instance_create_layer(global.x_,global.y_,"Instances",obj_view); // нижняя точка
+view_3.alpha=18
+view_4=instance_create_layer(global.x_,global.y_,"Instances",obj_view); // нижняя точка
+view_4.alpha=26
 
 
 
