@@ -586,7 +586,7 @@
             "Key": "8f51ad01-238b-428d-880a-c2141e512a09",
             "Value": {
                 "id": "7bf3f027-40e3-4f14-8089-5a9c2ccf878d",
-                "resourcePath": "sprites\\spr_circle_F\\spr_circle_F.yy",
+                "resourcePath": "sprites\\spr_circle_F2\\spr_circle_F2.yy",
                 "resourceType": "GMSprite"
             }
         },
@@ -956,6 +956,14 @@
                 "id": "4ea7c366-7fad-4824-b7d8-97180e34a509",
                 "resourcePath": "options\\mac\\options_mac.yy",
                 "resourceType": "GMMacOptions"
+            }
+        },
+        {
+            "Key": "fe480432-128b-4ada-a404-ab7b4a657258",
+            "Value": {
+                "id": "c402714e-01df-420e-9b42-264784c8b78e",
+                "resourcePath": "sprites\\spr_circle_F\\spr_circle_F.yy",
+                "resourceType": "GMSprite"
             }
         },
         {

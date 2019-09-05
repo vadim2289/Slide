@@ -3,6 +3,7 @@ var object_loc=noone
 var alpha_loc=0
 var height_radius_loc=0
 var sprite_id_loc=""
+var var_view=rotation_start-360
 //score+=5
 
 
@@ -62,9 +63,13 @@ if(global.string_end!="-1"){ // если не первый проход
 			new_solid.height_radius=height_radius_loc // назначаем ему высоту
 			new_solid.start_alpha=alpha_loc-360 //  назначаем ему стартовый угол
 			new_solid.image_angle=alpha_loc-90 //  поворачиваем его спрайт по углу
+			
 			//show_debug_message(" string_end "+string(global.string_end)+" result_row "+string(result_row)+" !! "+string(new_solid.sprite_index))
 			//show_debug_message("alpha_create_solid "+string(alpha_loc)+" rotation_start "+string(rotation_start))
 		}
+		//view_=instance_create_layer(global.x_,global.y_,"Instances",obj_view); // нижняя точка
+		//view_.alpha=var_view
+		//var_view-=9
 		j--
 	}		
 			
@@ -114,6 +119,10 @@ if(global.string_end!="-1"){ // если не первый проход
 			
 			//show_debug_message(" string_end "+string(global.string_end)+" result_row "+string(result_row)+" !! "+string(new_solid.sprite_index))
 		}
+		view_=instance_create_layer(global.x_,global.y_,"Instances",obj_view); // нижняя точка
+		view_.alpha=var_view
+		var_view-=9
+		view_.depth=-pool
 		j--
 	}
 	//global.string_end="0"  // временно
