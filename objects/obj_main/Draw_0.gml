@@ -23,7 +23,7 @@ if(instance_exists(global.test_instance_post)){
 
 
 //draw_text(room_width/2-10,450,"string: "+string(global.string_end))
-draw_text(room_width/2+500,450,"cadr: "+string(int64(obj_pl.image_index)))
+draw_text(room_width/2+500,450,"frame: "+string(int64(obj_pl.image_index)))
 draw_text(room_width/2+500,300,"AI: "+string(obj_pl.AI))
 draw_text(room_width/2+500,350,"Animation: "+string(obj_pl.sprite_index))
 

@@ -4,6 +4,10 @@ var alpha_loc=0
 var height_radius_loc=0
 var sprite_id_loc=""
 var var_view=rotation_start-360
+//var var_view_2=rotation_start-360
+var var_view_3=rotation_start-364.5
+var depth_waves=-10
+var propusk=true
 //score+=5
 
 
@@ -36,7 +40,17 @@ if(global.string_end!="-1"){ // если не первый проход
 	
 	sprite_index=asset_get_index(global.DB[# result_row,0]);  // загружаем спрайт сектора
 	depth=depth-10
-	//	sprite_index=asset_get_index("spr_circle_small"); // временно
+	
+	
+	if(sprite_index==spr_circle_F){
+		view_=instance_create_layer(global.x_,global.y_,"Instances",obj_view); // нижняя точка
+		view_.sprite_index=spr_waterfall
+		view_.alpha=var_view-90
+		view_.depth=-10
+		//depth_waves-=1
+	}
+	
+	//view_.alpha=rotation_start//	sprite_index=asset_get_index("spr_circle_small"); // временно
 	
 	/*if(global.number_/2-round(global.number_/2)==0){
 		sprite_index=spr_circle_R // загружаем спрайт сектора
@@ -67,6 +81,41 @@ if(global.string_end!="-1"){ // если не первый проход
 			//show_debug_message(" string_end "+string(global.string_end)+" result_row "+string(result_row)+" !! "+string(new_solid.sprite_index))
 			//show_debug_message("alpha_create_solid "+string(alpha_loc)+" rotation_start "+string(rotation_start))
 		}
+		
+		
+	if(propusk){
+			view_=instance_create_layer(global.x_,global.y_,"Instances",obj_view); // нижняя точка
+			view_.alpha=var_view
+			var_view-=9
+			view_.depth=depth_waves
+			depth_waves-=1
+			
+			view_3=instance_create_layer(global.x_,global.y_,"Instances",obj_view); // нижняя точка
+			view_3.alpha=var_view_3
+			var_view_3-=9
+			view_3.sprite_index=sprite581
+			view_3.depth=-depth_waves
+			view_3.image_index=3
+		}else{		
+			view_2=instance_create_layer(global.x_,global.y_,"Instances",obj_view); // нижняя точка
+			view_2.alpha=var_view
+			//view_2.sprite_index=sprite581
+			var_view-=9
+			view_2.depth=depth_waves
+			view_2.image_index=6		
+			depth_waves-=1
+			
+			view_3=instance_create_layer(global.x_,global.y_,"Instances",obj_view); // нижняя точка
+			view_3.alpha=var_view_3
+			var_view_3-=9
+			view_3.sprite_index=sprite581
+			view_3.depth=-depth_waves
+			view_3.image_index=9
+		}
+		propusk=!propusk
+		
+		//depth_waves-=1
+		
 		//view_=instance_create_layer(global.x_,global.y_,"Instances",obj_view); // нижняя точка
 		//view_.alpha=var_view
 		//var_view-=9
@@ -81,6 +130,10 @@ if(global.string_end!="-1"){ // если не первый проход
 	global.string_end= scr_random_range(global.DB[# result_row,2])	 // выбираем вид сектора из допустимых для следующего прохода
 	//global.testing=" string_end "+string(global.string_end)+" result_row "+string(result_row)
 	sprite_index=asset_get_index(global.DB[# result_row,0]);
+	
+	
+	
+	//view_.alpha=rotation_start//	sprite_index=asset_get_index("spr_circle_small"); // временно
 	
 	//sprite_index=spr_circle_small // временно
 	
@@ -119,10 +172,47 @@ if(global.string_end!="-1"){ // если не первый проход
 			
 			//show_debug_message(" string_end "+string(global.string_end)+" result_row "+string(result_row)+" !! "+string(new_solid.sprite_index))
 		}
-		view_=instance_create_layer(global.x_,global.y_,"Instances",obj_view); // нижняя точка
-		view_.alpha=var_view
-		var_view-=9
-		view_.depth=-pool
+		
+		
+		
+		if(propusk){
+			view_=instance_create_layer(global.x_,global.y_,"Instances",obj_view); // нижняя точка
+			view_.height_radius=-100
+			view_.alpha=var_view
+			var_view-=9
+			view_.depth=depth_waves
+			view_.sprite_index=sprite62
+			depth_waves-=1
+			
+			view_3=instance_create_layer(global.x_,global.y_,"Instances",obj_view); // нижняя точка
+			view_3.height_radius=-100
+			view_3.alpha=var_view_3
+			var_view_3-=9
+			view_3.sprite_index=sprite621
+			view_3.depth=-depth_waves
+			view_3.image_index=3
+		}else{		
+			view_2=instance_create_layer(global.x_,global.y_,"Instances",obj_view); // нижняя точка
+			view_2.height_radius=-100
+			view_2.alpha=var_view
+			//view_2.sprite_index=sprite581
+			var_view-=9
+			view_2.sprite_index=sprite62
+			view_2.depth=depth_waves
+			view_2.image_index=6		
+			depth_waves-=1
+			
+			view_3=instance_create_layer(global.x_,global.y_,"Instances",obj_view); // нижняя точка
+			view_3.height_radius=-100
+			view_3.alpha=var_view_3
+			var_view_3-=9
+			view_3.sprite_index=sprite621
+			view_3.depth=-depth_waves
+			view_3.image_index=9
+		}
+		
+		
+		propusk=!propusk
 		j--
 	}
 	//global.string_end="0"  // временно
@@ -131,4 +221,5 @@ if(global.string_end!="-1"){ // если не первый проход
 with (obj_enemy){	
 	depth=depth-10
 }
+obj_eath_view.depth=-500
 return result_row

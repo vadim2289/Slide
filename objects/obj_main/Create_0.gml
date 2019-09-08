@@ -3,6 +3,8 @@
 global.radius_=825;
 global.x_=room_width/2;
 global.y_=room_height+415;
+//global.y_=room_height-1200;
+
 //global.y_=room_height-2.5*415;
 global.speed_=0.3;
 global.max_speed_=0.3;
@@ -68,6 +70,10 @@ sector_r.sprite_index=2;
 sector_r.sprite_index=3;
 sector_r.sprite_index=4;
 sector_r.sprite_index=5;
+
+
+
+
 sector_r.sprite_index=6;
 sector_r.sprite_index=7;
 */
@@ -138,6 +144,11 @@ for (var i=0;i<20;i++){
 */
 
 
+sectors=instance_create_layer(global.x_,global.y_,"Instances",obj_eath_view); // правая точка
+sectors.rotation_start=90;
+sectors.sprite_index=spr_earth_view;
+
+
 
 
 if (file_exists(working_directory +"levelDB.txt")){
@@ -151,7 +162,7 @@ randomize()
 
 // подгрузка карт спрайтов нужно пересматривать каждый раз когда добавляешь новый спрайт
 draw_texture_flush();
-
+/*
 draw_sprite(spr_circle_C, 0, 0, 0);
 
 draw_sprite(spr_circle_E, 0, 0, 0);
@@ -161,5 +172,5 @@ draw_sprite(spr_solid3, 0, 0, 0);
 draw_sprite(spr_solid2, 0, 0, 0);
 
 draw_sprite(spr_pie, 0, 0, 0);
-
+*/
 //new_solid=instance_create_layer(0,0,"Instances", obj_solid);
