@@ -147,7 +147,7 @@ for (var i=0;i<20;i++){
 sectors=instance_create_layer(global.x_,global.y_,"Instances",obj_eath_view); // правая точка
 sectors.rotation_start=90;
 sectors.sprite_index=spr_earth_view;
-
+//sectors.image_blend=c_blue
 
 
 
