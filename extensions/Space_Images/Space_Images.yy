@@ -1,7 +1,7 @@
 {
     "id": "49115bac-a6e1-4590-917f-cb9ffecc520b",
     "modelName": "GMExtension",
-    "mvc": "1.0",
+    "mvc": "1.2",
     "name": "Space_Images",
     "IncludedResources": [
         "Backgrounds\\background1",
@@ -40,6 +40,7 @@
     "copyToTargets": -1,
     "date": "2018-53-16 08:08:52",
     "description": "",
+    "exportToGame": true,
     "extensionName": "",
     "files": [
         
@@ -60,9 +61,12 @@
     "maccompilerflags": "",
     "maclinkerflags": "",
     "macsourcedir": "",
+    "options": null,
+    "optionsFile": "options.json",
     "packageID": "com.solunasoftware.spaceimages",
     "productID": "ACBD3CFF4E539AD869A0E8E3B4B022DD",
     "sourcedir": "",
+    "supportedTargets": -1,
     "tvosProps": false,
     "tvosSystemFrameworkEntries": [
         

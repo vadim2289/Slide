@@ -1,7 +1,7 @@
 {
     "id": "a4fb43de-2681-438e-aca8-73cf04389ded",
     "modelName": "GMExtension",
-    "mvc": "1.0",
+    "mvc": "1.2",
     "name": "Cloud_Background",
     "IncludedResources": [
         "Backgrounds\\cloud_blue",
@@ -23,6 +23,7 @@
     "copyToTargets": -1,
     "date": "2018-42-16 08:08:09",
     "description": "",
+    "exportToGame": true,
     "extensionName": "",
     "files": [
         
@@ -43,9 +44,12 @@
     "maccompilerflags": "",
     "maclinkerflags": "",
     "macsourcedir": "",
+    "options": null,
+    "optionsFile": "options.json",
     "packageID": "com.kengae.cloudbg",
     "productID": "F79C97955FD1AF4686EB4EF4EF90F0DB",
     "sourcedir": "",
+    "supportedTargets": -1,
     "tvosProps": false,
     "tvosSystemFrameworkEntries": [
         
