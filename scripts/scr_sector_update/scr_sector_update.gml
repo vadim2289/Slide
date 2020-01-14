@@ -51,7 +51,7 @@ if(global.string_end!="-1"){ // если не первый проход
 	
 	sprite_index=asset_get_index(global.DB[# result_row,0]);  // загружаем спрайт сектора
 	depth=depth-10
-	// генерация волн на земле волны
+	// генерация волн
 	
 	switch(sprite_index){
 		case spr_circle_F:

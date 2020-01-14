@@ -42,9 +42,6 @@ if(!global.pause_game){
 			global.score_-=0.3
 			global.shift=0
 			alarm[0]=50		
-			
-		
-			
 		}
 	}
 

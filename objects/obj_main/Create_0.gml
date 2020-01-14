@@ -4,30 +4,29 @@ global.radius_=825;
 global.x_=room_width/2;
 global.y_=room_height+415;
 //global.y_=room_height-1200;
-
 //global.y_=room_height-2.5*415;
 global.speed_=0.3;
 global.max_speed_=0.3;
 global.save_speed_=0;
-global.sector_numb=0;
-global.max_=3;
+//global.sector_numb=0;
+//global.max_=3;
 global.DB=ds_grid_create(100,43)
 global.string_end="-1";
-global.play_=true
+//global.play_=true
 global.testing=""
-global.log=""
-global.number_=0
+//global.log=""
+//global.number_=0
 global.pause=false
 global.pause_game=false
-global.last_sector=1
+//global.last_sector=1
 global.shift=0
 global.shift_count=0
 global.first_after_shift=false
 global.score_=0
 
 global.test_instance_prev=noone
-global.test_instance_post=noone
-global.testing_solid=0
+//global.test_instance_post=noone
+//global.testing_solid=0
 /*
 var w = window_get_width() / 3; 
 var h = window_get_height() / 3;
@@ -58,28 +57,14 @@ instance_create_layer(global.x_,global.y_-global.radius_-150,"Instances",obj_pl)
 //wall22.height_radius=155
 //wall22.alpha=270
 
-new_meteor=instance_create_layer(-50,0,"Instances",obj_meteor)
-new_ufo=instance_create_layer(-50,-20,"Instances",obj_ufo)
+//new_meteor=instance_create_layer(-50,0,"Instances",obj_meteor)
+//new_ufo=instance_create_layer(-50,-20,"Instances",obj_ufo)
 
-
+// помещаем секторы коллизий
 sector_r=instance_create_layer(global.x_,global.y_,"Instances",obj_eath); // правая точка
 sector_r.rotation_start=90;
-
-sector_r.sprite_index=spr_circle_F;/*
-sector_r.sprite_index=2;
-sector_r.sprite_index=3;
-sector_r.sprite_index=4;
-sector_r.sprite_index=5;
-
-
-
-
-sector_r.sprite_index=6;
-sector_r.sprite_index=7;
-*/
+sector_r.sprite_index=spr_circle_F;
 sector_r.sector_id=0
-//sector_r.visible=false
-
 
 sector_u=instance_create_layer(global.x_,global.y_,"Instances",obj_eath); // верхнаяя точка
 sector_u.rotation_start=180;
@@ -143,20 +128,20 @@ for (var i=0;i<20;i++){
 
 */
 
-
+// помещаем визуал дна
 sectors=instance_create_layer(global.x_,global.y_,"Instances",obj_eath_view); // правая точка
 sectors.rotation_start=90;
 sectors.sprite_index=spr_earth_view;
-sectors=instance_create_layer(global.x_,global.y_,"Instances",obj_eath_view); // правая точка
+sectors=instance_create_layer(global.x_,global.y_,"Instances",obj_eath_view); // верхняя точка
 sectors.rotation_start=180;
 sectors.sprite_index=spr_earth_view;
-sectors=instance_create_layer(global.x_,global.y_,"Instances",obj_eath_view); // правая точка
+sectors=instance_create_layer(global.x_,global.y_,"Instances",obj_eath_view); // левая точка
 sectors.rotation_start=270;
 sectors.sprite_index=spr_earth_view;
-sectors=instance_create_layer(global.x_,global.y_,"Instances",obj_eath_view); // правая точка
+sectors=instance_create_layer(global.x_,global.y_,"Instances",obj_eath_view); // нижняя точка
 sectors.rotation_start=0;
 sectors.sprite_index=spr_earth_view;
-//sectors.image_blend=c_blue
+
 
 
 
@@ -168,6 +153,8 @@ if (file_exists(working_directory +"levelDB.txt")){
 }
 randomize()
 //scr_db_create();
+
+
 
 // подгрузка карт спрайтов нужно пересматривать каждый раз когда добавляешь новый спрайт
 draw_texture_flush();

@@ -16,8 +16,7 @@ if(!global.pause){
 	if(rotation_start>350&&rotation_start<359&&!sector_updating)
 	{	
 		sector_updating=true;
-		sector_id=scr_sector_update();	
-	
+		sector_id=scr_sector_update();		
 	}
 }
 image_angle=rotation_start;
