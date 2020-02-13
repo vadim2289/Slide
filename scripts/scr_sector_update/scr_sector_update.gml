@@ -189,6 +189,81 @@ if(global.string_end!="-1"){ // если не первый проход
 			new_solid.start_alpha=alpha_loc-360 //  назначаем ему стартовый угол
 			new_solid.image_angle=alpha_loc-90 //  поворачиваем его спрайт по углу
 			
+			
+			// отображаемый спрайт
+			view_=instance_create_layer(global.x_+lengthdir_x(global.radius_+height_radius_loc,alpha_loc),
+					global.y_+lengthdir_y(global.radius_+height_radius_loc,alpha_loc),"Instances",
+					obj_view);  // создаем экземпляр объекта по взятым параметрам
+				
+				//view_.image_xscale=-1
+				view_.alpha=new_solid.alpha
+				view_.height_radius=new_solid.height_radius
+				view_.start_alpha=new_solid.start_alpha
+				view_.image_angle=new_solid.image_angle					
+				view_.depth=-100	
+				
+			switch(new_solid.sprite_index){
+				
+				case spr_solid1_5:
+					view_.sprite_index=Cloud_0_1					
+				break;
+				case spr_solid1_4:
+					view_.sprite_index=Cloud_0_1
+				break;
+				case spr_solid1_3:
+					view_.sprite_index=Cloud_0_1					
+				break;
+				case spr_solid1_2:
+					view_.sprite_index=Cloud_0_1					
+				break;
+				case spr_solid1:
+					view_.sprite_index=Cloud_0_1					
+				break;
+				case spr_solid2_5:
+					view_.sprite_index=Cloud_0_2
+				break;
+				case spr_solid2_4:
+					view_.sprite_index=Cloud_0_2
+				break;
+				case spr_solid2_3:
+					view_.sprite_index=Cloud_0_2
+				break;
+				case spr_solid2_2:
+					view_.sprite_index=Cloud_0_2
+				break;
+				case spr_solid2:
+					view_.sprite_index=Cloud_0_2
+				break;
+				case spr_solid3_5:
+					view_.sprite_index=Cloud_0_3
+				break;
+				case spr_solid3_4:
+					view_.sprite_index=Cloud_0_3
+				break;
+				case spr_solid3_3:
+					view_.sprite_index=Cloud_0_3
+				break;
+				case spr_solid3_2:
+					view_.sprite_index=Cloud_0_3
+				break;
+				case spr_solid3:
+					view_.sprite_index=Cloud_0_3
+				break;
+				
+				//case spr_solid2_5 || spr_solid2_4 || spr_solid2_3 || spr_solid2_2 || spr_solid2:
+				//	view_=instance_create_layer(global.x_+lengthdir_x(global.radius_+height_radius_loc,alpha_loc),
+				//		global.y_+lengthdir_y(global.radius_+height_radius_loc,alpha_loc),"Instances",
+				//		obj_view);  // создаем экземпляр объекта по взятым параметрам
+				//	view_.sprite_index=Cloud_0_2
+				//	//view_.image_xscale=-1
+				//	view_.alpha=new_solid.alpha
+				//	view_.height_radius=new_solid.height_radius
+				//	view_.start_alpha=new_solid.start_alpha
+				//	view_.image_angle=new_solid.image_angle					
+				//	view_.depth=-100						
+				//	break;
+			}
+			
 			//show_debug_message(" string_end "+string(global.string_end)+" result_row "+string(result_row)+" !! "+string(new_solid.sprite_index))
 			//show_debug_message("alpha_create_solid "+string(alpha_loc)+" rotation_start "+string(rotation_start))
 		}
