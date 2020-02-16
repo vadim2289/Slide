@@ -26,6 +26,7 @@ if(!global.pause){
 // постепенное возвращение к сектору при рестаре
 if(!global.pause_game){
 	if(global.shift!=0){
+		//show_debug_message("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!REASART")
 		global.first_after_shift=false
 		if(global.shift_count!=0){	
 			global.shift_count-=global.speed_*sign(global.speed_)

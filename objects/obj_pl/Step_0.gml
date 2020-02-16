@@ -32,19 +32,19 @@ if(!global.pause){
 					global.pause=true
 					global.speed_=0;
 					AI="on_destroy"					
-					/*gravity_=0
+					gravity_=0
 					result_radius_local=result_radius
 					alpha=90
-					alarm[0]=20*/
+					alarm[0]=20
 	}
 	if(y_future>room_height+10){
 					global.pause=true
 					global.speed_=0;
 					AI="on_destroy"	
-					/*gravity_=0
+					gravity_=0
 					result_radius_local=result_radius
 					alpha=90
-					alarm[0]=20*/
+					alarm[0]=20
 	}
 	if(place_meeting(x_future,y_future,obj_enemy)){
 		var inst= instance_place(x_future,y_future,obj_enemy)
@@ -68,21 +68,21 @@ if(!global.pause){
 		}
 		else if(super_power==false){				
 			bad_active=-1
-			//global.pause=true
-			//global.speed_=0;
+			global.pause=true
+			global.speed_=0;
 			AI="on_destroy"	
 			
 			
-			/*gravity_=0
+			gravity_=0
 			super_power=true
 			alarm[0]=20
 			result_radius=1500
 			result_radius_local=result_radius
 			alpha=90
 			result_radius+=vertical_speed;
-			//show_debug_message("solid_fall"+string(result_radius))
+			show_debug_message("solid_fall"+string(result_radius))
 			x=global.x_+lengthdir_x(result_radius,alpha); 
-			y=global.y_+lengthdir_y(result_radius,alpha);*/
+			y=global.y_+lengthdir_y(result_radius,alpha);
 			exit;
 			
 		}
@@ -162,11 +162,11 @@ if(!global.pause){
 	// animation
 	
 	if(AI=="on_destroy"){
-					global.pause=true
-					super_power=true
+					//global.pause_game=true
+					//super_power=true
 					global.speed_=0;
 					sprite_index=spr_destroy
-				//	scr_restart()
+					scr_restart()
 					//image_index=0;
 					//scr_restart()
 	}

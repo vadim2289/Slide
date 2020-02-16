@@ -5,7 +5,7 @@ draw_set_color(c_white)
 draw_text(100,100,fps)
 //draw_text(100,200,sector_r.rotation_start)
 //draw_text(room_width/2,100,score)
-
+draw_text(room_width/2+50,150,"pause : "+string(global.pause))
 draw_text(room_width/2+50,200,"test : "+string(global.testing))
 
 draw_text(room_width/2+500,250,"score: "+string(global.score_))
@@ -26,6 +26,7 @@ if(instance_exists(global.test_instance_post)){
 draw_text(room_width/2+500,450,"frame: "+string(int64(obj_pl.image_index)))
 draw_text(room_width/2+500,300,"AI: "+string(obj_pl.AI))
 draw_text(room_width/2+500,350,"Animation: "+string(obj_pl.sprite_index))
+
 
 
 draw_set_font(font_sector)

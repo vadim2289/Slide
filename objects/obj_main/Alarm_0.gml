@@ -7,7 +7,7 @@ global.speed_=global.max_speed_
 		obj_pl.result_radius=1400
 		obj_pl.AI="on_air"
 		image_speed=1
-		//show_debug_message("STOLKNOVENIE "+" "+string(result_))
+		show_debug_message("STOLKNOVENIE "+" "+string(result_radius))
 		
 		
 		
