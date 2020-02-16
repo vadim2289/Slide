@@ -109,13 +109,13 @@ if(!global.pause){
 					if(!super_power){
 						//var inst= instance_place(global.x_+lengthdir_x(result_radius_local+sign(vertical_speed),alpha),global.y_+lengthdir_y(result_radius_local+sign(vertical_speed),alpha),obj_eath)
 						//global.testing_solid=inst.alpha					
-						//result_radius=1500
+						result_radius=1500
 						bad_active=-1					
 						global.pause=true
 						global.speed_=0;
 						AI="on_destroy"	
 						scr_restart()
-						//result_radius_local=result_radius						
+						result_radius_local=result_radius						
 						//var inst= instance_place(global.x_+lengthdir_x(result_radius_local+sign(vertical_speed),alpha),global.y_+lengthdir_y(result_radius_local+sign(vertical_speed),alpha),obj_eath)
 						//global.testing_solid=inst					
 						break; // остновка while после рестарта, чтобы не считал до конца						
