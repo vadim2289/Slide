@@ -18,6 +18,10 @@ var third_radius=0;
 var counter_=0
 var counter_cloud=0
 var step_cloud=11.25
+var delete_last_wave=-1
+var global_counter=0
+
+
 
 //score+=5
 
@@ -38,6 +42,9 @@ var step_cloud=11.25
 								//	}
 									//result_row=round(random_range(197,198))
 	show_debug_message("CREATE!!!!!!!!!!! "+string(result_row))
+	
+	
+	
 	global.string_end= scr_random_range(global.DB[# result_row,2])	// выбираем вид сектора из допустимых для следующего прохода
 	
 	
@@ -60,13 +67,14 @@ var step_cloud=11.25
 		case spr_circle_F:
 			first_counter=10
 			first_radius=0
+			third_radius=0
 			break;
 		case spr_circle_C:
 			first_counter=2
 			first_radius=0
-			second_counter=5
+			second_counter=6
 			second_radius=-100
-			third_counter=3
+			third_counter=2
 			third_radius=0
 			view_=instance_create_layer(global.x_,global.y_,"Instances",obj_view); // нижняя точка
 			view_.sprite_index=spr_waterfall
@@ -78,10 +86,12 @@ var step_cloud=11.25
 			view_.image_xscale=1
 			view_.alpha=var_view-66.5
 			view_.depth=-100
+			third_radius=0
 			break;
 		case spr_circle_E:
 			first_counter=10
 			first_radius=-100
+			third_radius=-100
 			break;
 		case spr_circle_L:
 			first_counter=3
@@ -93,12 +103,14 @@ var step_cloud=11.25
 			view_.image_xscale=1
 			view_.alpha=var_view-22.5
 			view_.depth=-100
+			third_radius=0
 			break;
 		case spr_circle_LR:
 			first_counter=3
 			first_radius=-100
 			second_counter=4
 			second_radius=0
+								delete_last_wave=14 // удалить 14 волну
 			third_counter=3
 			third_radius=-100
 			view_=instance_create_layer(global.x_,global.y_,"Instances",obj_view); // нижняя точка
@@ -110,22 +122,30 @@ var step_cloud=11.25
 			view_.sprite_index=spr_waterfall
 			view_.image_xscale=-1
 			view_.alpha=var_view-66.5
-			view_.depth=-100			
+			view_.depth=-100		
+			third_radius=-100
 			break;
 		case spr_circle_R:
 			first_counter=7
 			first_radius=0
+			
+									delete_last_wave=14 // удалить 14 волну
+			
 			second_counter=3
 			second_radius=-100
 			view_=instance_create_layer(global.x_,global.y_,"Instances",obj_view); // нижняя точка
 			view_.sprite_index=spr_waterfall
 			view_.image_xscale=-1
 			view_.alpha=var_view-66.5
-			view_.depth=-100			
+			view_.depth=-100	
+			third_radius=-100
 			break;
 		case spr_circle_RR:
 			first_counter=5
 			first_radius=0
+			
+									delete_last_wave=10 // удалить 10 волну
+			
 			second_counter=5
 			second_radius=-100
 			view_=instance_create_layer(global.x_,global.y_,"Instances",obj_view); // нижняя точка
@@ -133,6 +153,7 @@ var step_cloud=11.25
 			view_.image_xscale=-1
 			view_.alpha=var_view-45
 			view_.depth=-100
+			third_radius=-100
 			break;
 		case spr_circle_LL:
 			first_counter=5
@@ -144,9 +165,27 @@ var step_cloud=11.25
 			view_.image_xscale=1
 			view_.alpha=var_view-45
 			view_.depth=-100
+			third_radius=0
 			break;		
 	}	
 	//end
+	
+	if (first_radius>global.third_counter_prev) {
+		view_=instance_create_layer(global.x_,global.y_,"Instances",obj_view); // нижняя точка
+		view_.sprite_index=spr_waterfall
+		view_.image_xscale=1
+		view_.alpha=var_view
+		view_.depth=-100
+	}else if (first_radius<global.third_counter_prev) {
+		view_=instance_create_layer(global.x_,global.y_,"Instances",obj_view); // нижняя точка
+		view_.sprite_index=spr_waterfall
+		view_.image_xscale=-1
+		view_.alpha=var_view
+		view_.depth=-100
+		instance_destroy(global.last_wave_id)
+	}
+	
+	global.third_counter_prev=third_radius
 	
 	for(var pool=3;pool<43;pool+=4){		
 		if(global.DB[# result_row,pool]!=0){				
@@ -385,7 +424,7 @@ var step_cloud=11.25
 			//show_debug_message(" string_end "+string(global.string_end)+" result_row "+string(result_row)+" !! "+string(new_solid.sprite_index))
 			//show_debug_message("alpha_create_solid "+string(alpha_loc)+" rotation_start "+string(rotation_start))
 		}
-		// волны расстановки в зависимости от земли
+// уменьшение счетчика количества волн на каждый из трех участков сектора
 				if first_counter>0 {	
 					counter_=first_counter
 					radius_waves=first_radius
@@ -402,8 +441,11 @@ var step_cloud=11.25
 					third_counter-=1
 					//counter_=third_counter
 				}
+				
+// создание волн переднего и заднего плана по счетчикам, пропуск - это создание пары волн с другого начального кадра анимации  			
 				if(propusk){
 					view_=instance_create_layer(global.x_,global.y_,"Instances",obj_view); // нижняя точка
+					global_counter+=1
 					view_.height_radius=radius_waves
 					view_.alpha=var_view
 					var_view-=9
@@ -415,21 +457,29 @@ var step_cloud=11.25
 					}
 					depth_waves-=1
 					if counter_>0 {
-						view_3=instance_create_layer(global.x_,global.y_,"Instances",obj_view); // нижняя точка
-						view_3.height_radius=radius_waves
-						view_3.alpha=var_view_3
-						var_view_3-=9					
-						if(radius_waves<0){						
-							view_3.sprite_index=spr_down_back_wave
+						if(delete_last_wave!=global_counter+1){			
+							view_3=instance_create_layer(global.x_,global.y_,"Instances",obj_view); // нижняя точка
+							global.last_wave_id=view_3
+							global_counter+=1
+							view_3.height_radius=radius_waves
+							view_3.alpha=var_view_3
+							var_view_3-=9					
+							if(radius_waves<0){						
+								view_3.sprite_index=spr_down_back_wave
+							}else{
+								view_3.sprite_index=spr_up_back_wave
+							}
+							view_3.depth=-depth_waves
+							view_3.image_index=3
 						}else{
-							view_3.sprite_index=spr_up_back_wave
+							global_counter+=1
 						}
-						view_3.depth=-depth_waves
-						view_3.image_index=3
+							
 					}
 					
 				}else{		
 					view_2=instance_create_layer(global.x_,global.y_,"Instances",obj_view); // нижняя точка
+					global_counter+=1
 					view_2.height_radius=radius_waves
 					view_2.alpha=var_view
 					//view_2.sprite_index=sprite581
@@ -443,19 +493,27 @@ var step_cloud=11.25
 					view_2.image_index=6		
 					depth_waves-=1
 					if counter_>0 {
+						
+						if(delete_last_wave!=global_counter+1){			
 						view_3=instance_create_layer(global.x_,global.y_,"Instances",obj_view); // нижняя точка
-						view_3.height_radius=radius_waves
-						view_3.alpha=var_view_3
-						var_view_3-=9						
-						if(radius_waves<0){	
+						global.last_wave_id=view_3
+							global_counter+=1
+							view_3.height_radius=radius_waves
+							view_3.alpha=var_view_3
+							var_view_3-=9						
+							if(radius_waves<0){	
 						
-							view_3.sprite_index=spr_down_back_wave
+								view_3.sprite_index=spr_down_back_wave
+							}else{
+						
+								view_3.sprite_index=spr_up_back_wave
+							}
+							view_3.depth=-depth_waves
+							view_3.image_index=9	
 						}else{
-						
-							view_3.sprite_index=spr_up_back_wave
+							global_counter+=1
 						}
-						view_3.depth=-depth_waves
-						view_3.image_index=9	
+						
 					}
 							
 					
@@ -573,4 +631,5 @@ with (obj_enemy){
 	depth=depth-10
 }
 obj_eath_view.depth=-500
+show_debug_message("GLOBALCOUNTER  "+string(global_counter))
 return result_row

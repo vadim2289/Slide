@@ -25,6 +25,9 @@ global.first_after_shift=false
 global.score_=0
 
 global.test_instance_prev=noone
+
+global.third_counter_prev=0 // для водопадов, каким радиусом заканчивается предыдущий сектор -100 или 0
+global.last_wave_id=0
 //global.test_instance_post=noone
 //global.testing_solid=0
 /*

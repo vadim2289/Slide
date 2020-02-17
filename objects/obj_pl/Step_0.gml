@@ -48,44 +48,44 @@ if(!global.pause){
 	}
 	if(place_meeting(x_future,y_future,obj_enemy)){
 		var inst= instance_place(x_future,y_future,obj_enemy)
-		if(inst.type_obj=="obj_good"){
-			global.pause=true
-			global.speed_=0;
-			alarm[2]=50 // задержка перед активацией лута
-			loot="good"
+		//if(inst.type_obj=="obj_good"){
+		//	global.pause=true
+		//	global.speed_=0;
+		//	alarm[2]=50 // задержка перед активацией лута
+		//	loot="good"
 			
-			//alarm[1]=inst.time
-			instance_destroy(inst)		
-		}else if(inst.type_obj=="obj_bad"){
-			global.pause=true
-			global.speed_=0;
-			alarm[2]=50 // задержка перед активацией лута
-			loot="bad"
-			//alarm[1]=inst.time_
-			//global.speed_=inst.speed_
-			//bad_active=inst.speed_
-			instance_destroy(inst)
-		}
-		else if(super_power==false){				
-			bad_active=-1
-			global.pause=true
-			global.speed_=0;
-			AI="on_destroy"	
+		//	//alarm[1]=inst.time
+		//	instance_destroy(inst)		
+		//}else if(inst.type_obj=="obj_bad"){
+		//	global.pause=true
+		//	global.speed_=0;
+		//	alarm[2]=50 // задержка перед активацией лута
+		//	loot="bad"
+		//	//alarm[1]=inst.time_
+		//	//global.speed_=inst.speed_
+		//	//bad_active=inst.speed_
+		//	instance_destroy(inst)
+		//}
+		//else if(super_power==false){				
+		//	bad_active=-1
+		//	global.pause=true
+		//	global.speed_=0;
+		//	AI="on_destroy"	
 			
 			
-			gravity_=0
-			super_power=true
-			alarm[0]=20
-			result_radius=1500
-			result_radius_local=result_radius
-			alpha=90
-			result_radius+=vertical_speed;
-			show_debug_message("solid_fall"+string(result_radius))
-			x=global.x_+lengthdir_x(result_radius,alpha); 
-			y=global.y_+lengthdir_y(result_radius,alpha);
-			exit;
+		//	gravity_=0
+		//	super_power=true
+		//	alarm[0]=20
+		//	result_radius=1500
+		//	result_radius_local=result_radius
+		//	alpha=90
+		//	result_radius+=vertical_speed;
+		//	show_debug_message("solid_fall"+string(result_radius))
+		//	x=global.x_+lengthdir_x(result_radius,alpha); 
+		//	y=global.y_+lengthdir_y(result_radius,alpha);
+		//	exit;
 			
-		}
+		//}
 	}
 
 	if(place_meeting(x_future,y_future,obj_eath)){
