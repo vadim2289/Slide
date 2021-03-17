@@ -2,9 +2,12 @@
 // You can write your code in this editor
 
 if(!global.pause){
+	
 	button_up=keyboard_check_pressed(vk_up)
 	button_down=keyboard_check(vk_down);
 	key_horizon=keyboard_check(vk_right)-keyboard_check(vk_left);
+	
+	
 	
 	vertical_speed-=gravity_	
 

@@ -1,8 +1,22 @@
 /// @description Create_game
 // You can write your code in this editor
-global.radius_=825;
+
+switch (os_type)
+{
+   case os_windows: global.Config = 0; break;
+   case os_android: global.Config = 1; break;
+   case os_linux: global.Config = 2; break;
+   case os_macosx: global.Config = 3; break;
+   case os_ios: global.Config = 4; break;
+}
+global.Left = virtual_key_add(30, 542, 128, 128, vk_left);
+global.right = virtual_key_add(190, 542, 128, 128, vk_right);
+global.up = virtual_key_add(1375, 415, 128, 128, vk_up);
+global.down = virtual_key_add(1375, 575, 128, 128, vk_down);
+
+global.radius_=825//825
 global.x_=room_width/2;
-global.y_=room_height+415;
+global.y_=room_height+555;//415
 //global.y_=room_height-1200;
 //global.y_=room_height-2.5*415;
 global.speed_=0.3;
